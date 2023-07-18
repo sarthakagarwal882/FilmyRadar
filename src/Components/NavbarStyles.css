@@ -1,0 +1,90 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 8vh;
+    text-align: center;
+}
+
+.navbar h1 {
+    margin: 1vw 0 1vw 2vw;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.nav-h-span{
+    color: #ff3d3d;
+    font-size: 2.1rem;
+}
+.nav-search {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbar form {
+    display: flex;
+}
+
+.navbar form input {
+    width: 40vw;
+    height: 4.3vh;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid black;
+    border-right: none;
+    background-color: #303134;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.navbar form input:focus {
+    border: 0.5px solid white;
+    outline: none;
+}
+
+.navbar form button {
+    height: 4.3vh;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid black;
+    background-color: #b71212;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 2.5rem;
+}
+
+.navbar form button svg {
+    margin: 0;
+    font-size: 1.3rem;
+    color: azure;
+}
+
+.navbar div {
+    margin: auto 1vw;
+    color: white;
+    transition: 0.25s ease-in-out;
+    /* width: 200px; */
+    box-sizing: border-box;
+    padding: 0.5vw 0.9vw;
+    border-radius: 5px;
+}
+
+.nav-auth div:hover{
+    /* border: 1px solid #fff; */
+    background-color:#303134;
+}
+
+.nav-auth {
+    display: flex;
+    flex-direction: row;
+    margin: auto 2vw auto 0;
+}
+
+.nav-auth  a {
+    text-decoration: none;
+}

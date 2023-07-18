@@ -1,0 +1,29 @@
+.wrapper-login{
+    height: 100vh;
+    display:flex;
+    align-items: center;
+}
+.login{
+    margin: auto;
+    text-align: center;
+    width: 35%;
+    height: 50%;
+    background-color: #2f2f2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.login form a{
+    width: 50%;
+    margin: auto;
+}
+.login form a button{
+    width: 100%;
+    cursor: pointer;
+
+}

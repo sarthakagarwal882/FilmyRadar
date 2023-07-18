@@ -1,0 +1,35 @@
+.home {
+    /* text-align: center; */
+    margin: 3vh 0 0 2vw;
+}
+
+.home-movies {
+    /* text-align: center; */
+}
+
+.home h2 {
+    margin: auto auto 0 auto;
+    font-size: 2.3rem;
+}
+
+.home h3 {
+    font-size: 1.5rem;
+}
+
+.home hr {
+    margin: 0;
+    border-color: #FACF5A;
+    width: 70vw;
+}
+
+
+.media-all {
+    text-align: center;
+    margin: auto;
+    padding: 1vw;
+}
+
+.media-all div {
+    display: inline-block;
+    margin: 1rem;
+}
