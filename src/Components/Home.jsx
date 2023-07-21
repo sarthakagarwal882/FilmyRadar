@@ -1,13 +1,17 @@
 import MediaCard from './MediaCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
 import axios from 'axios'
 
 
-const Home = () => {
+const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
 
+    
+
+
+    
 
     useEffect(() => {
         const fetch = async () => {
@@ -143,7 +147,7 @@ const Home = () => {
                 <div className='media-all' key={6} type='person'>
                     {data.length > 5 && data[5].map((item) => {
                         return (
-                            <MediaCard key={item.id} data={item} type={'person'}/>)
+                            <MediaCard key={item.id} data={item} type={'person'} />)
                     })}
                 </div>
             </div>

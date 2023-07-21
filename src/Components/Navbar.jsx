@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { BiSearch } from 'react-icons/bi'
+import {PiTelevisionBold } from 'react-icons/pi'
 // import { BiSolidUserCircle } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 import './NavbarStyles.css'
@@ -16,7 +17,9 @@ const Navbar = () => {
     }
     return (
         <div className="navbar" >
-            <h1><span className="nav-h-span">F</span>ilmy<span className="nav-h-span">R</span>adar</h1>
+            <Link to='/'>
+            <h1><PiTelevisionBold/><span className="nav-h-span">F</span>ilmy<span className="nav-h-span">R</span>adar</h1>
+            </Link>
             <div className="nav-search">
                 <form onSubmit={handleFormSubmit}>
                     <input type="text" placeholder="Movies, TV shows, Person" onChange={handleSearchChange} value={searchText} />

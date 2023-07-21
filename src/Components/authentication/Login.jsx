@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './LoginStyles.css'
+import { BiSolidLogInCircle } from 'react-icons/bi'
+import {PiTelevisionBold} from 'react-icons/pi'
 // var bcrypt = require('bcryptjs');
 
 
 const Login = () => {
     const navigateTo = useNavigate();
-    const [pageRes, setPageRes] = useState(0);
     let [credentials, setCredentials] = useState({
         username: "",
         password: ""
@@ -31,15 +32,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const check = await axios.post('http://localhost:8000/login/check', { credentials });
-            console.log(check.data);
-            if (!check.data) {
-                setPageRes(1);
+            const check = await axios.post('http://localhost:8000/login', { credentials });
+            if (check.data) {
+                navigateTo('/',{state:credentials.username})
             }
-            else{
-                setPageRes(-1);
+            else {
+                alert('Invalid username or password')
             }
-                console.log(check.data);
         }
         catch (error) {
             console.log(error);
@@ -47,25 +46,23 @@ const Login = () => {
     };
 
 
-    useEffect(() => {
-        { (pageRes===1) && navigateTo('/success') }
-
-        { (pageRes===-1) && navigateTo('/failure') }
-    }, [pageRes]);
-
-
-
     return (
-        <div className="wrapper-login">
-        <div className="login">
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />
-                <input onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
-                <button type="submit">Log in</button>
-                <Link to="/signup"><button>Dont have an account? Sign up!</button></Link>
-            </form>
+        <div className="wrapper">
+            <div className="login">
+                <h1 ><PiTelevisionBold/>FilmyRadar</h1>
+                <form onSubmit={handleSubmit} autoComplete="off">
+                    <div>
+                        <input onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />
+                    </div>
+                    <div>
+                        <input onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
+                    </div>
+                    <button className="btn-login" type="submit">Log in
+                    </button>
+                    <Link to="/register"><button>Dont have an account? Sign up!</button></Link>
+                </form>
 
-        </div>
+            </div>
         </div>
     );
 };

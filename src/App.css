@@ -13,3 +13,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.wrapper{
+    height: 92vh;
+    display: flex;
+    align-items: center;
+}
