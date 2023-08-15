@@ -7,12 +7,7 @@ import axios from 'axios'
 const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-
     
-
-
-    
-
     useEffect(() => {
         const fetch = async () => {
 
@@ -76,19 +71,6 @@ const Home = (props) => {
                 let a = count + 1
                 setCount(a)
             }
-            if (count === 5) {
-                let info = (await axios.get('http://localhost:8000/person/popular')).data
-
-                setData((prevValue) =>
-                    [
-                        ...prevValue,
-                        info
-                    ]
-
-                )
-                let a = count + 1
-                setCount(a)
-            }
         }
         fetch()
     }, [count])
@@ -140,17 +122,7 @@ const Home = (props) => {
                     })}
                 </div>
             </div>
-            <div className='home-person'>
-                <h2>Person</h2>
-                <hr />
-                <h3>Popular</h3>
-                <div className='media-all' key={6} type='person'>
-                    {data.length > 5 && data[5].map((item) => {
-                        return (
-                            <MediaCard key={item.id} data={item} type={'person'} />)
-                    })}
-                </div>
-            </div>
+
         </div>
     )
 };

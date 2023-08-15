@@ -58,12 +58,13 @@
     background-color: transparent !important;
 }
 
-.login form div {
+.login-form-div {
     text-align: left;
     padding: 1rem 0.5rem 0.5rem;
     background-color: #676767;
     margin: 25px;
     border-radius: 5px;
+    height: 3rem;
 }
 
 .login input::placeholder{

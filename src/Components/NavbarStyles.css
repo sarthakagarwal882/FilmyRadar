@@ -103,3 +103,31 @@
 .nav-auth  a {
     text-decoration: none;
 }
+.profile-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(61, 61, 61);
+    margin: auto 2vw 0 0 !important;
+    cursor: pointer;
+}
+.profile-img-male{
+    background: url('../assets/man.png');
+    background-size: cover;
+    border: none;
+    outline: none;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin: 0 0 0 1rem;   
+}
+.profile-img-female{
+    background: url('../assets/woman.png');
+    background-size: cover;
+    border: none;
+    outline: none;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin: 0;   
+}

@@ -1,5 +1,5 @@
-import Login from "../authentication/Login"
-import Navbar from '../Navbar'
+import Login from "../Components/authentication/Login"
+import Navbar from '../Components/Navbar'
 
 const LogIn=()=>{
     return(

@@ -34,7 +34,7 @@ const Login = () => {
         try {
             const check = await axios.post('http://localhost:8000/login', { credentials });
             if (check.data) {
-                navigateTo('/',{state:credentials.username})
+                navigateTo('/',{state:check.data})
             }
             else {
                 alert('Invalid username or password')
@@ -51,11 +51,11 @@ const Login = () => {
             <div className="login">
                 <h1 ><PiTelevisionBold/>FilmyRadar</h1>
                 <form onSubmit={handleSubmit} autoComplete="off">
-                    <div>
-                        <input onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />
+                    <div className="login-form-div">
+                        <input data-lpignore="true" onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />
                     </div>
-                    <div>
-                        <input onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
+                    <div className="login-form-div">
+                        <input data-lpignore="true" onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
                     </div>
                     <button className="btn-login" type="submit">Log in
                     </button>

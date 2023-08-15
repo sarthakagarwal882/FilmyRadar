@@ -1,5 +1,5 @@
-import Navbar from "../Navbar"
-import SignUp from "../authentication/SignUp"
+import Navbar from "../Components/Navbar"
+import SignUp from "../Components/authentication/SignUp"
 
 const Register = () => {
     return (

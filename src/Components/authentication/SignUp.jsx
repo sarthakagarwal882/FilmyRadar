@@ -32,14 +32,12 @@ const SignUp = () => {
     async function sendData() {
 
         const check = await axios.post("http://localhost:8000/register", { formData });
-        if (check.data === true) {
-            navigateTo('/', { state: formData.username });
+        if (check.data) {
+            navigateTo('/', { state: check.data });
         }
         else if (check.data === false)
             alert("username already taken");
-        else if (check.data === -1) {
-            alert("Sorry, There is Some Server issue! Can't register right now")
-        }
+
     }
     function handleChange(event) {
         const { value, name } = event.target;
