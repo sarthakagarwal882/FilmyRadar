@@ -9,6 +9,7 @@ const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
     const server = import.meta.env.VITE_SERVER_LINK
+    console.log(server);
     useEffect(() => {
         const fetch = async () => {
 
