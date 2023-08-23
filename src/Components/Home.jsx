@@ -1,3 +1,4 @@
+
 import MediaCard from './MediaCard';
 import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
@@ -7,12 +8,12 @@ import axios from 'axios'
 const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-    
+    const server = import.meta.env.VITE_SERVER_LINK
     useEffect(() => {
         const fetch = async () => {
 
             if (count === 0) {
-                let info = (await axios.get('http://localhost:8000/movie/top_rated')).data
+                let info = (await axios.get(server+'/movie/top_rated')).data
 
                 setData([info])
                 // console.log(info);
