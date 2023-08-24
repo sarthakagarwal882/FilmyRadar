@@ -8,13 +8,19 @@ import axios from 'axios'
 const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-    console.log(import.meta.env);
+    let backend_link;
+    if (import.meta.env.MODE === 'production') {
+        backend_link = import.meta.env.VITE_SERVER_LINK
+    }
+    else if (import.meta.env.MODE === 'development') {
+        backend_link = import.meta.env.VITE_LOCAL_LINK
+    }
     useEffect(() => {
         const fetch = async () => {
 
             if (count === 0) {
                 try {
-                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/top_rated')).data
+                    let info = (await axios.get(backend_link + '/movie/top_rated')).data
                     setData([info])
                     let a = count + 1
                     setCount(a)
@@ -26,7 +32,7 @@ const Home = (props) => {
             }
             if (count === 1) {
                 try {
-                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/now_playing')).data
+                    let info = (await axios.get(backend_link + '/movie/now_playing')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -44,7 +50,7 @@ const Home = (props) => {
             }
             if (count === 2) {
                 try {
-                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/popular')).data
+                    let info = (await axios.get(backend_link + '/movie/popular')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -62,7 +68,7 @@ const Home = (props) => {
             }
             if (count === 3) {
                 try {
-                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/tv/popular')).data
+                    let info = (await axios.get(backend_link + '/tv/popular')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -80,14 +86,14 @@ const Home = (props) => {
             }
             if (count === 4) {
                 try {
-                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/tv/top_rated')).data
+                    let info = (await axios.get(backend_link + '/tv/top_rated')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
                             info
                         ]
 
-                    )                    
+                    )
                     let a = count + 1
                     setCount(a)
                 }
@@ -202,4 +208,4 @@ const Home = (props) => {
         </div>
     )
 };
-export default Home 
+export default Home

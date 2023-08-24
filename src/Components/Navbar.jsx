@@ -7,12 +7,19 @@ import { Link } from 'react-router-dom'
 import './NavbarStyles.css'
 const Navbar = (props) => {
     const [searchText, setSearchText] = useState("")
+    let backend_link;
+    if (import.meta.env.MODE === 'production') {
+        backend_link = import.meta.env.VITE_SERVER_LINK
+    }
+    else if (import.meta.env.MODE === 'development') {
+        backend_link = import.meta.env.VITE_LOCAL_LINK
+    }
     function handleSearchChange(data) {
         setSearchText(data.target.value);
     }
     async function handleFormSubmit(e) {
         e.preventDefault();
-        const data = await axios.post("http://localhost:8000/search", { searchText })
+        const data = await axios.post(backend_link+"/search", { searchText })
         console.log(data);
     }
     function setProfileImg(){

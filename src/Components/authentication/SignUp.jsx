@@ -20,6 +20,13 @@ const SignUp = () => {
         female: false,
         other: false
     })
+    let backend_link;
+    if (import.meta.env.MODE === 'production') {
+        backend_link = import.meta.env.VITE_SERVER_LINK
+    }
+    else if (import.meta.env.MODE === 'development') {
+        backend_link = import.meta.env.VITE_LOCAL_LINK
+    }
     function handleSubmit(e) {
         e.preventDefault();
         if (cfPassColor === "" || cfPassColor === "red") {
@@ -31,7 +38,7 @@ const SignUp = () => {
     }
     async function sendData() {
 
-        const check = await axios.post("http://localhost:8000/register", { formData });
+        const check = await axios.post(backend_link+"/register", { formData });
         if (check.data) {
             navigateTo('/', { state: check.data });
         }

@@ -13,6 +13,13 @@ const Login = () => {
         username: "",
         password: ""
     });
+    let backend_link;
+    if (import.meta.env.MODE === 'production') {
+        backend_link = import.meta.env.VITE_SERVER_LINK
+    }
+    else if (import.meta.env.MODE === 'development') {
+        backend_link = import.meta.env.VITE_LOCAL_LINK
+    }
 
 
 
@@ -32,7 +39,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const check = await axios.post('http://localhost:8000/login', { credentials });
+            const check = await axios.post(backend_link+'/login', { credentials });
             if (check.data) {
                 navigateTo('/',{state:check.data})
             }
