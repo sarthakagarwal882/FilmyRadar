@@ -17,7 +17,6 @@ function App() {
         <Route path='/login' element={<LogIn/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/MediaInfo' element={<MediaInfoRoute/>}/>
-        {/* <Route path='/'/> */}
       </Routes>
 
     </BrowserRouter>

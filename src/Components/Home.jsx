@@ -8,13 +8,13 @@ import axios from 'axios'
 const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-    const server = import.meta.env.VITE_SERVER_LINK
+    console.log(import.meta.env);
     useEffect(() => {
         const fetch = async () => {
 
             if (count === 0) {
                 try {
-                    let info = (await axios.get(server + '/movie/top_rated')).data
+                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/top_rated')).data
                     setData([info])
                     let a = count + 1
                     setCount(a)
@@ -26,7 +26,7 @@ const Home = (props) => {
             }
             if (count === 1) {
                 try {
-                    let info = (await axios.get(server + '/movie/now_playing')).data
+                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/now_playing')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -44,7 +44,7 @@ const Home = (props) => {
             }
             if (count === 2) {
                 try {
-                    let info = (await axios.get(server + '/movie/popular')).data
+                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/movie/popular')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -62,7 +62,7 @@ const Home = (props) => {
             }
             if (count === 3) {
                 try {
-                    let info = (await axios.get(server + '/tv/popular')).data
+                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/tv/popular')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,
@@ -80,7 +80,7 @@ const Home = (props) => {
             }
             if (count === 4) {
                 try {
-                    let info = (await axios.get(server + '/tv/top_rated')).data
+                    let info = (await axios.get(import.meta.env.VITE_SERVER_LINK + '/tv/top_rated')).data
                     setData((prevValue) =>
                         [
                             ...prevValue,

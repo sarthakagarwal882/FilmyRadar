@@ -7,7 +7,7 @@ const MediaInfo = (props) => {
     
 
     async function getData() {
-        const info = await axios.post('http://localhost:8000/query', { id,type })
+        const info = await axios.post(import.meta.env.VITE_SERVER_LINK+'/query', { id,type })
         setData(info.data)
         console.log(data);
     }
