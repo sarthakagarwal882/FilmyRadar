@@ -9,70 +9,144 @@ const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
     const server = import.meta.env.VITE_SERVER_LINK
-    console.log(server);
     useEffect(() => {
         const fetch = async () => {
 
             if (count === 0) {
-                let info = (await axios.get(server+'/movie/top_rated')).data
-
-                setData([info])
-                // console.log(info);
-                let a = count + 1
-                setCount(a)
+                try {
+                    let info = (await axios.get(server + '/movie/top_rated')).data
+                    setData([info])
+                    let a = count + 1
+                    setCount(a)
+                }
+                catch (err) {
+                    console.log(err);
+                }
 
             }
             if (count === 1) {
-                let info = (await axios.get('http://localhost:8000/movie/now_playing')).data
-                setData((prevValue) =>
-                    [
-                        ...prevValue,
-                        info
-                    ]
+                try {
+                    let info = (await axios.get(server + '/movie/now_playing')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
 
-                )
-                let a = count + 1
-                setCount(a)
+                    )
+                    let a = count + 1
+                    setCount(a)
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
             }
             if (count === 2) {
-                let info = (await axios.get('http://localhost:8000/movie/popular')).data
+                try {
+                    let info = (await axios.get(server + '/movie/popular')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
 
-                setData((prevValue) =>
-                    [
-                        ...prevValue,
-                        info
-                    ]
+                    )
+                    let a = count + 1
+                    setCount(a)
+                }
+                catch (err) {
+                    console.log(err);
+                }
 
-                )
-                let a = count + 1
-                setCount(a)
             }
             if (count === 3) {
-                let info = (await axios.get('http://localhost:8000/tv/popular')).data
+                try {
+                    let info = (await axios.get(server + '/tv/popular')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
 
-                setData((prevValue) =>
-                    [
-                        ...prevValue,
-                        info
-                    ]
+                    )
+                    let a = count + 1
+                    setCount(a)
+                }
+                catch (err) {
+                    console.log(err);
+                }
 
-                )
-                let a = count + 1
-                setCount(a)
             }
             if (count === 4) {
-                let info = (await axios.get('http://localhost:8000/tv/top_rated')).data
+                try {
+                    let info = (await axios.get(server + '/tv/top_rated')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
 
-                setData((prevValue) =>
-                    [
-                        ...prevValue,
-                        info
-                    ]
+                    )                    
+                    let a = count + 1
+                    setCount(a)
+                }
+                catch (err) {
+                    console.log(err);
+                }
 
-                )
-                let a = count + 1
-                setCount(a)
             }
+            // if (count === 1) {
+            //     let info = (await axios.get('http://localhost:8000/movie/now_playing')).data
+            // setData((prevValue) =>
+            //     [
+            //         ...prevValue,
+            //         info
+            //     ]
+
+            // )
+            //     let a = count + 1
+            //     setCount(a)
+            // }
+            // if (count === 2) {
+            //     let info = (await axios.get('http://localhost:8000/movie/popular')).data
+
+            //     setData((prevValue) =>
+            //         [
+            //             ...prevValue,
+            //             info
+            //         ]
+
+            //     )
+            //     let a = count + 1
+            //     setCount(a)
+            // }
+            // if (count === 3) {
+            //     let info = (await axios.get('http://localhost:8000/tv/popular')).data
+
+            //     setData((prevValue) =>
+            //         [
+            //             ...prevValue,
+            //             info
+            //         ]
+
+            //     )
+            //     let a = count + 1
+            //     setCount(a)
+            // }
+            // if (count === 4) {
+            //     let info = (await axios.get('http://localhost:8000/tv/top_rated')).data
+
+            //     setData((prevValue) =>
+            //         [
+            //             ...prevValue,
+            //             info
+            //         ]
+
+            //     )
+            //     let a = count + 1
+            //     setCount(a)
+            // }
         }
         fetch()
     }, [count])
