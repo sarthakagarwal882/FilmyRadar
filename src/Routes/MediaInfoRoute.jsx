@@ -1,12 +1,12 @@
-import { useLocation, useSearchParams } from "react-router-dom"
+import {useSearchParams} from "react-router-dom"
 import MediaInfo from "../Components/MediaInfo"
-const MediaInfoRoute = () => {
-    const location=useLocation()
+const MediaInfoRoute = (props) => {
+    const category=props.category
     const [searchParam, setSearchParam] = useSearchParams()
-    let query = searchParam.get('q')
+    let query = searchParam.get('id') 
     return (
         <div>
-            <MediaInfo id={query} type={location.state}/>
+            <MediaInfo id={query} type={category}/>
         </div>
     )
 }

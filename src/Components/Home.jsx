@@ -102,58 +102,8 @@ const Home = (props) => {
                 }
 
             }
-            // if (count === 1) {
-            //     let info = (await axios.get('http://localhost:8000/movie/now_playing')).data
-            // setData((prevValue) =>
-            //     [
-            //         ...prevValue,
-            //         info
-            //     ]
-
-            // )
-            //     let a = count + 1
-            //     setCount(a)
-            // }
-            // if (count === 2) {
-            //     let info = (await axios.get('http://localhost:8000/movie/popular')).data
-
-            //     setData((prevValue) =>
-            //         [
-            //             ...prevValue,
-            //             info
-            //         ]
-
-            //     )
-            //     let a = count + 1
-            //     setCount(a)
-            // }
-            // if (count === 3) {
-            //     let info = (await axios.get('http://localhost:8000/tv/popular')).data
-
-            //     setData((prevValue) =>
-            //         [
-            //             ...prevValue,
-            //             info
-            //         ]
-
-            //     )
-            //     let a = count + 1
-            //     setCount(a)
-            // }
-            // if (count === 4) {
-            //     let info = (await axios.get('http://localhost:8000/tv/top_rated')).data
-
-            //     setData((prevValue) =>
-            //         [
-            //             ...prevValue,
-            //             info
-            //         ]
-
-            //     )
-            //     let a = count + 1
-            //     setCount(a)
-            // }
         }
+
         fetch()
     }, [count])
 

@@ -60,7 +60,7 @@ const MediaCard = (props) => {
 
                 <p className='media-title'>{data.title}</p>
 
-                <Link to={'/MediaInfo/?q=' + data.id} state={data.type}>
+                <Link to={'/'+data.type+'/?id=' + data.id}>
                     <button onClick={handleInfo} className='get-info'>
                         <div className='get-info-div'>
                             <div>
