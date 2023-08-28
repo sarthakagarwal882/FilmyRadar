@@ -14,7 +14,6 @@ const MediaInfo = (props) => {
 
     async function getData() {
         const info = await axios.post(backend_link + '/searchInfo', { id, type })
-        console.log(info);
         setData(info.data)
     }
     getData();
