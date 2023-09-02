@@ -18,7 +18,7 @@ const MediaCard = (props) => {
 
             < div className="mediacard" >
                 <Link className='mediacard-link' to={'/' + data.type + '/?id=' + data.id}>
-                    <img src={(props.type === 'person') ? (data.profile_path) : (data.poster_path)} alt="" />
+                    <img src={data.poster_path} alt="" />
 
                     {
                         ('ratings' in data) ?

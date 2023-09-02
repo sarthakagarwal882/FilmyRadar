@@ -4,6 +4,7 @@ import { PiTelevisionBold } from 'react-icons/pi'
 import axios from "axios";
 import { useState } from "react";
 const SignUp = () => {
+    const [regState, setRegState] = useState('true')
     const navigateTo = useNavigate();
     const [cfPassColor, setCfPassColor] = useState("")
     const [formData, setFormData] = useState({
@@ -27,18 +28,29 @@ const SignUp = () => {
     else if (import.meta.env.MODE === 'development') {
         backend_link = import.meta.env.VITE_LOCAL_LINK
     }
+
+
+
     function handleSubmit(e) {
         e.preventDefault();
-        if (cfPassColor === "" || cfPassColor === "red") {
-            alert("passwords do not match")
+        try {
+            setRegState();
+            if (cfPassColor === "" || cfPassColor === "red") {
+                alert("passwords do not match")
+            }
+            else {
+                sendData();
+            }
         }
-        else {
-            sendData();
+        catch (e) {
+            null
         }
     }
+
+
     async function sendData() {
 
-        const check = await axios.post(backend_link+"/register", { formData });
+        const check = await axios.post(backend_link + "/register", { formData });
         if (check.data) {
             navigateTo('/', { state: check.data });
         }
@@ -154,8 +166,11 @@ const SignUp = () => {
                             <input onChange={checkPass} name="cf_password" type="password" placeholder="Confirm password" value={formData.cf_password} required />
                         </div>
                     </div>
-
-                    <button type="submit" className='btn-register'>Register</button>
+                    {(regState) ?
+                        <button type="submit" className='btn-register'>Register</button>
+                        :
+                        <img className="auth-spinner" src="src\assets\spinner.svg" alt="" />
+                    }
                 </form>
                 <Link to="/login"><button>Already have an account? Log in!</button></Link>
             </div>

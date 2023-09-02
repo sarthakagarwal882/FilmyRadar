@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './LoginStyles.css'
 import { BiSolidLogInCircle } from 'react-icons/bi'
-import {PiTelevisionBold} from 'react-icons/pi'
+import { PiTelevisionBold } from 'react-icons/pi'
 // var bcrypt = require('bcryptjs');
 
 
 const Login = () => {
+    const [submitState, setSubmitState] = useState('true')
     const navigateTo = useNavigate();
     let [credentials, setCredentials] = useState({
         username: "",
@@ -39,9 +40,11 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const check = await axios.post(backend_link+'/login', { credentials });
+            setSubmitState()
+            console.log(e);
+            const check = await axios.post(backend_link + '/login', { credentials });
             if (check.data) {
-                navigateTo('/',{state:check.data})
+                navigateTo('/', { state: check.data })
             }
             else {
                 alert('Invalid username or password')
@@ -56,7 +59,7 @@ const Login = () => {
     return (
         <div className="wrapper">
             <div className="login">
-                <h1 ><PiTelevisionBold/>FilmyRadar</h1>
+                <h1 ><PiTelevisionBold />FilmyRadar</h1>
                 <form onSubmit={handleSubmit} autoComplete="off">
                     <div className="login-form-div">
                         <input data-lpignore="true" onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />
@@ -64,9 +67,13 @@ const Login = () => {
                     <div className="login-form-div">
                         <input data-lpignore="true" onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
                     </div>
-                    <button className="btn-login" type="submit">Log in
-                    </button>
-                    <Link to="/register"><button>Dont have an account? Sign up!</button></Link>
+                   {submitState ?
+                        <button className="btn-login" type="submit">Login
+                        </button>
+                        :
+                        <img className="auth-spinner" src="src\assets\spinner.svg" alt="" />
+                    }
+                    <Link to="/register"><button>Don't have an account? Sign up!</button></Link>
                 </form>
 
             </div>

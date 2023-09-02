@@ -66,8 +66,7 @@ const Navbar = (props) => {
                     <span className={setProfileImg()}></span>
                 </div>
             }
-
-
+{/* <img src="src\assets\spinner.svg" alt="" /> */}
         </div>
     );
 };
