@@ -115,7 +115,7 @@ const Home = (props) => {
             <div className='home-wrapper'>
                 {(data.length == 0) ?
                     <div>
-                        <img className='home-spinner' src="src/assets/spinner.svg" alt="" />
+                        <img className='home-spinner' src="./src/assets/spinner.svg" alt="" />
                     </div>
                     :
                     <div className='home'>
