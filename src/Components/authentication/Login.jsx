@@ -71,7 +71,7 @@ const Login = () => {
                         <button className="btn-login" type="submit">Login
                         </button>
                         :
-                        <img className="auth-spinner" src="../assets/spinner.svg" alt="" />
+                        <img className="auth-spinner" src="src/assets/spinner.svg" alt="" />
                     }
                     <Link to="/register"><button>Don't have an account? Sign up!</button></Link>
                 </form>

@@ -169,7 +169,7 @@ const SignUp = () => {
                     {(regState) ?
                         <button type="submit" className='btn-register'>Register</button>
                         :
-                        <img className="auth-spinner" src="../assets/spinner.svg" alt="" />
+                        <img className="auth-spinner" src="src/assets/spinner.svg" alt="" />
                     }
                 </form>
                 <Link to="/login"><button>Already have an account? Log in!</button></Link>
