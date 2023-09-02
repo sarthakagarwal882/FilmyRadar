@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: center;
 }
+.home-spinner-wrapper{
+    margin: 25vh 0 0 0;
+}
 
 .home {
     width: 85vw;
@@ -36,7 +39,4 @@
 .media-all div {
     display: inline-block;
     margin: 1rem;
-}
-.home-spinner{
-    margin: 30vh 0 0 0;
 }

@@ -3,6 +3,7 @@ import MediaCard from './MediaCard';
 import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
 import axios from 'axios'
+import Spinner from './Spinner/Spinner';
 
 
 const Home = (props) => {
@@ -114,8 +115,8 @@ const Home = (props) => {
         return (
             <div className='home-wrapper'>
                 {(data.length == 0) ?
-                    <div>
-                        <img className='home-spinner' src="./src/assets/spinner.svg" alt="" />
+                    <div className='home-spinner-wrapper'>
+                        <Spinner></Spinner>
                     </div>
                     :
                     <div className='home'>

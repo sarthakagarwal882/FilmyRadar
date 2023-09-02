@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { PiTelevisionBold } from 'react-icons/pi'
 import axios from "axios";
 import { useState } from "react";
+import Spinner from '../Spinner/Spinner';
 const SignUp = () => {
     const [regState, setRegState] = useState('true')
     const navigateTo = useNavigate();
@@ -34,11 +35,11 @@ const SignUp = () => {
     function handleSubmit(e) {
         e.preventDefault();
         try {
-            setRegState();
             if (cfPassColor === "" || cfPassColor === "red") {
                 alert("passwords do not match")
             }
             else {
+                setRegState();
                 sendData();
             }
         }
@@ -54,8 +55,10 @@ const SignUp = () => {
         if (check.data) {
             navigateTo('/', { state: check.data });
         }
-        else if (check.data === false)
+        else if (check.data === false) {
+            setRegState('true')
             alert("username already taken");
+        }
 
     }
     function handleChange(event) {
@@ -169,7 +172,7 @@ const SignUp = () => {
                     {(regState) ?
                         <button type="submit" className='btn-register'>Register</button>
                         :
-                        <img className="auth-spinner" src="./src/assets/spinner.svg" alt="" />
+                        <Spinner></Spinner>
                     }
                 </form>
                 <Link to="/login"><button>Already have an account? Log in!</button></Link>

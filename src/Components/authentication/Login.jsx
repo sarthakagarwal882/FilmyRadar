@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './LoginStyles.css'
-import { BiSolidLogInCircle } from 'react-icons/bi'
 import { PiTelevisionBold } from 'react-icons/pi'
-// var bcrypt = require('bcryptjs');
+import Spinner from "../Spinner/Spinner";
+
 
 
 const Login = () => {
@@ -47,6 +47,7 @@ const Login = () => {
                 navigateTo('/', { state: check.data })
             }
             else {
+                setSubmitState('true')
                 alert('Invalid username or password')
             }
         }
@@ -67,11 +68,11 @@ const Login = () => {
                     <div className="login-form-div">
                         <input data-lpignore="true" onChange={handleChange} name="password" type="password" value={credentials.password} placeholder="Password" />
                     </div>
-                   {submitState ?
+                    {submitState ?
                         <button className="btn-login" type="submit">Login
                         </button>
                         :
-                        <img className="auth-spinner" src="src/assets/metacritic-logo.jpg" alt="" />
+                        <Spinner></Spinner>
                     }
                     <Link to="/register"><button>Don't have an account? Sign up!</button></Link>
                 </form>
