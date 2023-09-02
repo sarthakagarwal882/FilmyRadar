@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearch } from 'react-icons/bi'
 import { PiTelevisionBold } from 'react-icons/pi'
 // import { BiSolidUserCircle } from 'react-icons/bi'
@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom'
 import './NavbarStyles.css'
 const Navbar = (props) => {
     const [searchText, setSearchText] = useState("")
+    const [state, setState] = useState('')
+    useEffect(() => {
+        setState(props.state)
+    }, [])
+
     let backend_link;
     if (import.meta.env.MODE === 'production') {
         backend_link = import.meta.env.VITE_SERVER_LINK
@@ -19,16 +24,16 @@ const Navbar = (props) => {
     }
     async function handleFormSubmit(e) {
         e.preventDefault();
-        const data = await axios.post(backend_link+"/search", { searchText })
+        const data = await axios.post(backend_link + "/search", { searchText })
         console.log(data);
     }
-    function setProfileImg(){
-        if(props.state.gender==='male')
-        return('profile-img-male')
-        else if(props.state.gender==='female')
-        return('profile-img-female')
+    function setProfileImg() {
+        if (state.gender === 'male')
+            return ('profile-img-male')
+        else if (state.gender === 'female')
+            return ('profile-img-female')
         else
-        return('profile-img-female')
+            return ('profile-img-female')
     }
     return (
         <div className="navbar" >
@@ -41,7 +46,7 @@ const Navbar = (props) => {
                     <button type="submit"><BiSearch /></button>
                 </form>
             </div>
-            {(props.state == null) ?
+            {(state == null) ?
                 <div className="nav-auth">
                     <Link to="/login">
                         <div>
@@ -55,9 +60,9 @@ const Navbar = (props) => {
                     </Link>
                 </div>
                 :
-                
+
                 <div className="profile-div">
-                    <p>{props.state.username}</p>
+                    <p>{state.username}</p>
                     <span className={setProfileImg()}></span>
                 </div>
             }

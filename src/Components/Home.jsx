@@ -8,6 +8,7 @@ import axios from 'axios'
 const Home = (props) => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
+    const [state, setState] = useState('')
     let backend_link;
     if (import.meta.env.MODE === 'production') {
         backend_link = import.meta.env.VITE_SERVER_LINK
@@ -16,6 +17,7 @@ const Home = (props) => {
         backend_link = import.meta.env.VITE_LOCAL_LINK
     }
     useEffect(() => {
+        setState(props.state)
         const fetch = async () => {
 
             if (count === 0) {

@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar"
 const HomePage = () => {
     let location=useLocation();
     let state=location.state
-    // console.log(state);
+    console.log(state);
     return (
         <div >
             <Navbar state={state}/>
