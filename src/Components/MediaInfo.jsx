@@ -5,7 +5,9 @@ import { SiRottentomatoes } from 'react-icons/si'
 import { BsImages } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import './MediaInfoStyles.css'
+import './Spinner/Spinner'
 import axios from 'axios'
+import Spinner from './Spinner/Spinner'
 const MediaInfo = (props) => {
     const [data, setData] = useState('')
     let count = 0
@@ -24,10 +26,15 @@ const MediaInfo = (props) => {
     }
     useEffect(getData, [])
 
-    async function handleWishlist(){
+    async function handleWishlist() {
         const info = axios.post(backend_link + '/searchInfo', { id, type })
     }
-
+    if (data == '')
+        return (
+            <div className='media-info-spinner'>
+                <Spinner></Spinner>
+            </div>
+        )
     if (data !== '') {
         if ('backdrops' in data.images)
             count = ((data.images.backdrops).length)
@@ -128,7 +135,6 @@ const MediaInfo = (props) => {
             </div>
         )
     }
-    else
-        null
+
 }
 export default MediaInfo

@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    height: 8vh;
+    height: 4rem;
     text-align: center;
 }
 .navbar a{
@@ -13,7 +13,7 @@
 .navbar h1 {
     display: flex;
     flex-direction: row;
-    margin: 1vw 0 1vw 2vw;
+    margin: 0vw 0 0vw 2vw;
     font-size: 2rem;
     font-weight: 700;
     cursor: pointer;
@@ -39,7 +39,7 @@
 
 .nav-search form input {
     width: 40vw;
-    height: 4.3vh;
+    height: 2rem;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border: 1px solid black;
@@ -56,7 +56,7 @@
 }
 
 .nav-search form button {
-    height: 4.3vh;
+    height: 2rem;
     border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

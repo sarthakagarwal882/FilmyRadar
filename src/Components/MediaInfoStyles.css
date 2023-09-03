@@ -1,5 +1,4 @@
 .media-info {
-    width: 100vw;
     height: 92vh;
     background-color: #222222;
     padding: 3rem 6rem 0;
@@ -50,7 +49,7 @@
     width: 90%;
     display: flex;
     flex-direction: row;
-    margin: 2rem auto 0;
+    margin: 1rem auto 0;
 }
 
 .media-info-img {
@@ -155,4 +154,12 @@
     align-items: center;
     justify-content: center;
     margin: 0 0 3px 0;
+}
+
+.media-info-spinner{
+    width: 100vw;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    margin: 32vh 0 0 0;
 }
