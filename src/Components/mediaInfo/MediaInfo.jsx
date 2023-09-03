@@ -5,10 +5,11 @@ import { SiRottentomatoes } from 'react-icons/si'
 import { BsImages } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import './MediaInfoStyles.css'
-import './Spinner/Spinner'
 import axios from 'axios'
-import Spinner from './Spinner/Spinner'
+import Spinner from '../Spinner/Spinner'
+import { useSelector } from 'react-redux'
 const MediaInfo = (props) => {
+    const stateInfo=useSelector((info)=>{return(info.user.data)})
     const [data, setData] = useState('')
     let count = 0
     const { id, type } = props
@@ -27,7 +28,11 @@ const MediaInfo = (props) => {
     useEffect(getData, [])
 
     async function handleWishlist() {
-        const info = axios.post(backend_link + '/searchInfo', { id, type })
+        if('username' in stateInfo)
+            console.log('ready');
+        else
+        console.log('not ready');
+
     }
     if (data == '')
         return (

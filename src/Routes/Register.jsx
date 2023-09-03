@@ -1,4 +1,4 @@
-import Navbar from "../Components/Navbar"
+import Navbar from "../Components/navbar/Navbar"
 import SignUp from "../Components/authentication/SignUp"
 
 const Register = () => {

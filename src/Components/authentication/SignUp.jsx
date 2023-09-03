@@ -4,7 +4,10 @@ import { PiTelevisionBold } from 'react-icons/pi'
 import axios from "axios";
 import { useState } from "react";
 import Spinner from '../Spinner/Spinner';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/slice/userSlice';
 const SignUp = () => {
+    const dispatch = useDispatch()
     const [regState, setRegState] = useState('true')
     const navigateTo = useNavigate();
     const [cfPassColor, setCfPassColor] = useState("")
@@ -53,6 +56,7 @@ const SignUp = () => {
 
         const check = await axios.post(backend_link + "/register", { formData });
         if (check.data) {
+            dispatch(login(check.data))
             navigateTo('/', { state: check.data });
         }
         else if (check.data === false) {
@@ -124,7 +128,6 @@ const SignUp = () => {
             <div className='signup'>
                 <h1 ><PiTelevisionBold />FilmyRadar</h1>
                 <form onSubmit={handleSubmit} autoComplete='off'>
-                    {/* <p>* marked fields are optional</p> */}
                     <div className='inp-dual'>
                         <div className='i-signup-div'>
                             <input onChange={handleChange} name="fname" type="text" placeholder="First name" value={formData.fname} required />

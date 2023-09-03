@@ -112,7 +112,7 @@
     cursor: pointer;
 }
 .profile-img-male{
-    background: url('../assets/man.png');
+    background: url('../../assets/man.png');
     background-size: cover;
     border: none;
     outline: none;
@@ -122,7 +122,7 @@
     margin: 0 0 0 1rem;   
 }
 .profile-img-female{
-    background: url('../assets/woman.png');
+    background: url('../../assets/woman.png');
     background-size: cover;
     border: none;
     outline: none;

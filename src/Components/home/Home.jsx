@@ -1,15 +1,14 @@
 
-import MediaCard from './MediaCard';
+import MediaCard from '../mediaCard/MediaCard';
 import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
 import axios from 'axios'
-import Spinner from './Spinner/Spinner';
+import Spinner from '../Spinner/Spinner';
 
 
-const Home = (props) => {
+const Home = () => {
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-    const [state, setState] = useState('')
     let backend_link;
     if (import.meta.env.MODE === 'production') {
         backend_link = import.meta.env.VITE_SERVER_LINK
@@ -18,7 +17,6 @@ const Home = (props) => {
         backend_link = import.meta.env.VITE_LOCAL_LINK
     }
     useEffect(() => {
-        setState(props.state)
         const fetch = async () => {
 
             if (count === 0) {
@@ -108,8 +106,7 @@ const Home = (props) => {
         }
 
         fetch()
-    }, [count])
-
+    }, [backend_link, count])
 
 
         return (

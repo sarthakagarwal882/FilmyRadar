@@ -1,6 +1,6 @@
 import {useSearchParams} from "react-router-dom"
-import MediaInfo from "../Components/MediaInfo"
-import Navbar from "../Components/Navbar"
+import MediaInfo from "../Components/mediaInfo/MediaInfo"
+import Navbar from "../Components/navbar/Navbar"
 const MediaInfoRoute = (props) => {
     const category=props.category
     const [searchParam, setSearchParam] = useSearchParams()

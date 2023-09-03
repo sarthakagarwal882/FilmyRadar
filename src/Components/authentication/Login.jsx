@@ -4,10 +4,14 @@ import axios from "axios";
 import './LoginStyles.css'
 import { PiTelevisionBold } from 'react-icons/pi'
 import Spinner from "../Spinner/Spinner";
-
+import { useDispatch } from "react-redux"
+import {login} from '../../store/slice/userSlice'
 
 
 const Login = () => {
+
+const dispatch=useDispatch()
+
     const [submitState, setSubmitState] = useState('true')
     const navigateTo = useNavigate();
     let [credentials, setCredentials] = useState({
@@ -41,9 +45,9 @@ const Login = () => {
         e.preventDefault()
         try {
             setSubmitState()
-            console.log(e);
             const check = await axios.post(backend_link + '/login', { credentials });
             if (check.data) {
+                dispatch(login(check.data))
                 navigateTo('/', { state: check.data })
             }
             else {
@@ -52,7 +56,7 @@ const Login = () => {
             }
         }
         catch (error) {
-            console.log(error);
+            console.log('error');
         }
     };
 
@@ -74,7 +78,7 @@ const Login = () => {
                         :
                         <Spinner></Spinner>
                     }
-                    <Link to="/register"><button>Don't have an account? Sign up!</button></Link>
+                    <Link to="/register"><button>Dont have an account? Sign up!</button></Link>
                 </form>
 
             </div>
