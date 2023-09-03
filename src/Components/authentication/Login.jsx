@@ -48,7 +48,7 @@ const dispatch=useDispatch()
             const check = await axios.post(backend_link + '/login', { credentials });
             if (check.data) {
                 dispatch(login(check.data))
-                navigateTo('/', { state: check.data })
+                navigateTo('/')
             }
             else {
                 setSubmitState('true')

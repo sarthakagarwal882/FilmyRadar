@@ -1,30 +1,21 @@
-import axios from "axios";
 import {useState } from "react";
 import { BiSearch } from 'react-icons/bi'
 import { PiTelevisionBold } from 'react-icons/pi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './NavbarStyles.css'
 import { useSelector } from "react-redux";
 const Navbar = () => {
-
+const navigateTo=useNavigate()
     const state = useSelector((userInfo) => { return (userInfo.user.data) })
-    console.log(state);
     const [searchText, setSearchText] = useState("")
 
-    let backend_link;
-    if (import.meta.env.MODE === 'production') {
-        backend_link = import.meta.env.VITE_SERVER_LINK
-    }
-    else if (import.meta.env.MODE === 'development') {
-        backend_link = import.meta.env.VITE_LOCAL_LINK
-    }
+
     function handleSearchChange(data) {
         setSearchText(data.target.value);
     }
     async function handleFormSubmit(e) {
         e.preventDefault();
-        const data = await axios.post(backend_link + "/search", { searchText })
-        
+        navigateTo('/search?query='+searchText)        
     }
     function setProfileImg() {
         if (state.gender === 'male')

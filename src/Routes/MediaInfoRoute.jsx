@@ -4,7 +4,7 @@ import Navbar from "../Components/navbar/Navbar"
 const MediaInfoRoute = (props) => {
     const category=props.category
     const [searchParam, setSearchParam] = useSearchParams()
-    let query = searchParam.get('id') 
+    let query = searchParam.get('id')
     return (
         <div>
             <Navbar/>

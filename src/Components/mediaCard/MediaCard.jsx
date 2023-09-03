@@ -10,7 +10,7 @@ const MediaCard = (props) => {
 
     return (
         < div className="mediacard" >
-            <Link className='mediacard-link' to={'/' + data.type + '/?id=' + data.id}>
+            <Link className='mediacard-link' to={'/' + data.type + '?id=' + data.id}>
                 <img src={data.poster_path} alt="" />
 
                 {
