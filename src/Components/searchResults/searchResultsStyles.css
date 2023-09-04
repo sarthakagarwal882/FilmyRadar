@@ -1,0 +1,21 @@
+.s-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.s-data-wrapper{
+    width: 85vw;
+}
+.s-data{
+    text-align: center;
+    padding: 0  0;
+    width: 100%;
+}
+
+.s-data div{
+    display: inline-block;
+    margin: 1rem;
+}

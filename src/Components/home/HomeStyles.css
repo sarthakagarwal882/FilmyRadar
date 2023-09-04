@@ -1,11 +1,11 @@
-.home-wrapper{
+.h-wrapper{
     margin: auto;
     width: 90vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.home-spinner-wrapper{
+.h-spinner-wrapper{
     margin: 32vh 0 0 0;
 }
 
@@ -21,7 +21,29 @@
 
 .home h3 {
     font-size: 1.5rem;
-    margin: 0 0 0 3.5vw;
+    margin: 1rem 0 0 3.5vw;
+    display: flex;
+    align-items: center;
+    max-height: 2.4rem;
+    position: relative;
+
+}
+.home h3:hover .h-playlist-icon{
+    transform: translate(10px,0);
+}
+.h-playlist-span{
+    background-color: #f5c518;
+    height: 1.5rem;
+    width: 5px;
+    border-radius: 10px;
+    margin: 0 5px 0 0;
+}
+
+.h-playlist-icon{
+    margin: 6px 0 0 0;
+    transition: 0.3s ease-in-out;
+    color: #f5c518;
+    font-size: larger;
 }
 
 .home hr {
@@ -30,13 +52,13 @@
     margin: 0 0 0 3.5vw;
 }
 
-.media-all {
+.h-media {
     text-align: center;
     margin: auto;
     padding: 1vw;
 }
 
-.media-all div {
+.h-media div {
     display: inline-block;
     margin: 1rem;
 }

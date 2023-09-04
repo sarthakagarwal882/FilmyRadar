@@ -1,4 +1,4 @@
-import SearchResults from "../Components/searchResults/searchResults"
+import SearchResults from "../Components/searchResults/SearchResults"
 import Navbar from '../Components/navbar/Navbar'
 import { useSearchParams } from "react-router-dom"
 

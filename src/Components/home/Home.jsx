@@ -4,6 +4,7 @@ import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
 import axios from 'axios'
 import Spinner from '../Spinner/Spinner';
+import { MdKeyboardArrowRight } from 'react-icons/md'
 
 
 const Home = () => {
@@ -109,64 +110,64 @@ const Home = () => {
     }, [backend_link, count])
 
 
-        return (
-            <div className='home-wrapper'>
-                {(data.length == 0) ?
-                    <div className='home-spinner-wrapper'>
-                        <Spinner></Spinner>
-                    </div>
-                    :
-                    <div className='home'>
-                        <div className='home-movies'>
-                            <h2>Movies</h2>
-                            <hr />
-                            <h3>Top rated</h3>
+    return (
+        <div className='h-wrapper'>
+            {(data.length == 0) ?
+                <div className='h-spinner-wrapper'>
+                    <Spinner></Spinner>
+                </div>
+                :
+                <div className='home'>
+                    <div className='h-media=wrapper'>
+                        <h2>Movies</h2>
+                        <hr />
+                        <h3><span className='h-playlist-span'></span>Top rated<MdKeyboardArrowRight className='h-playlist-icon'/></h3>
 
-                            <div className='media-all'>
-                                {data.length > 0 && data[0].map((item) => {
-                                    return (
-                                        <MediaCard key={item.id} data={item} />)
-                                })}
-                            </div>
-                            <h3>Now playing</h3>
-                            <div className='media-all' key={2}>
-                                {data.length > 1 && data[1].map((item) => {
-                                    return (
-                                        <MediaCard key={item.id} data={item} />)
-                                })}
-                            </div>
-                            <h3>Popular</h3>
-                            <div className='media-all' key={3}>
-                                {data.length > 2 && data[2].map((item) => {
-                                    return (
-                                        <MediaCard key={item.id} data={item} />)
-                                })}
-                            </div>
+                        <div className='h-media'>
+                            {data.length > 0 && data[0].map((item) => {
+                                return (
+                                    <MediaCard key={item.id} data={item} />)
+                            })}
                         </div>
-                        <div className='home-tv'>
-                            <h2>TV</h2>
-                            <hr />
-                            <h3>Popular</h3>
-                            <div className='media-all' key={4}>
-                                {data.length > 3 && data[3].map((item) => {
-                                    return (
-                                        <MediaCard key={item.id} data={item} />)
-                                })}
-                            </div>
-                            <h3>Top rated</h3>
-                            <div className='media-all' key={5}>
-                                {data.length > 4 && data[4].map((item) => {
-                                    return (
-                                        <MediaCard key={item.id} data={item} />)
-                                })}
-                            </div>
+                        <h3><span className='h-playlist-span'></span>Now playing<MdKeyboardArrowRight className='h-playlist-icon'/></h3>
+                        <div className='h-media' key={2}>
+                            {data.length > 1 && data[1].map((item) => {
+                                return (
+                                    <MediaCard key={item.id} data={item} />)
+                            })}
                         </div>
-
+                        <h3><span className='h-playlist-span'></span>Popular<MdKeyboardArrowRight className='h-playlist-icon'/></h3>
+                        <div className='h-media' key={3}>
+                            {data.length > 2 && data[2].map((item) => {
+                                return (
+                                    <MediaCard key={item.id} data={item} />)
+                            })}
+                        </div>
                     </div>
-                }
+                    <div className='h-media-wrapper'>
+                        <h2>TV</h2>
+                        <hr />
+                        <h3><span className='h-playlist-span'></span>Popular<MdKeyboardArrowRight className='h-playlist-icon'/></h3>
+                        <div className='h-media' key={4}>
+                            {data.length > 3 && data[3].map((item) => {
+                                return (
+                                    <MediaCard key={item.id} data={item} />)
+                            })}
+                        </div>
+                        <h3><span className='h-playlist-span'></span>Top rated<MdKeyboardArrowRight className='h-playlist-icon'/></h3>
+                        <div className='h-media' key={5}>
+                            {data.length > 4 && data[4].map((item) => {
+                                return (
+                                    <MediaCard key={item.id} data={item} />)
+                            })}
+                        </div>
+                    </div>
 
-            </div>
+                </div>
+            }
 
-        )
+        </div>
+
+    )
 };
 export default Home
