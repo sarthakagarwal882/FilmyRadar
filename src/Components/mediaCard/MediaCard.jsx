@@ -15,7 +15,9 @@ const MediaCard = (props) => {
 
                 {
                     ('ratings' in data) ?
-                        ((data.ratings) === null || undefined) ? null :
+                        ((data.ratings) === null || undefined) ? 
+                        <ul className='mediacard-ul'></ul>
+                        :
                             <>
                                 <ul className='mediacard-ul'>
                                     {(data.ratings).map((item) => {
