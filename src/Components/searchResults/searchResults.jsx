@@ -3,7 +3,7 @@ import backend_ref from "../BackendRef";
 import axios from "axios";
 import Spinner from "../Spinner/Spinner";
 import MediaCard from "../mediaCard/MediaCard";
-import './SearchResultsStyles.css'
+import './searchResultsStyles.css'
 
 
 const SearchResults = (props) => {
