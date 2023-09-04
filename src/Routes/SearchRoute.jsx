@@ -1,9 +1,8 @@
-import SearchResults from "../Components/searchResults/SearchResults"
+import SearchResults from '../Components/searchResults/SearchResults'
 import Navbar from '../Components/navbar/Navbar'
 import { useSearchParams } from "react-router-dom"
 
 const SearchRoute=()=>{
-    // eslint-disable-next-line no-unused-vars
     const [searchParam, setSearchParam] = useSearchParams()
     let query = searchParam.get('query')
     return(
