@@ -39,7 +39,7 @@ const SearchResults = (props) => {
                 </div>
             </div >
             :
-            <div>
+            <div className="s-spinner">
                 <Spinner />
             </div>
     )
