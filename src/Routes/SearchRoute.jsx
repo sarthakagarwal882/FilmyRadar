@@ -1,4 +1,4 @@
-// import SearchResults from '../Components/searchResults/SearchResults.jsx'
+import SearchResults from '../Components/searchResults/SearchResults'
 import Navbar from '../Components/navbar/Navbar'
 import { useSearchParams } from "react-router-dom"
 
@@ -8,7 +8,7 @@ const SearchRoute=()=>{
     return(
         <div>
         <Navbar/>
-        {/* <SearchResults query={query}/> */}
+        <SearchResults query={query}/>
         </div>
     )
 }
