@@ -1,37 +1,40 @@
-.h-wrapper{
+.h-wrapper {
     margin: auto;
     width: 90vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.h-spinner-wrapper{
+
+.h-spinner-wrapper {
     margin: 32vh 0 0 0;
 }
 
 .home {
-    width: 85vw;
+    width: 90%;
     margin: 2rem auto 0;
 }
 
 .home h2 {
     font-size: 2.3rem;
-    margin: 0 0 0 3.5vw;
+    margin: 0 0 0 3%;
 }
 
 .home h3 {
     font-size: 1.5rem;
-    margin: 1rem 0 0 3.5vw;
+    margin: 1.3% 0 0.6% 3%;
     display: flex;
     align-items: center;
     max-height: 2.4rem;
     position: relative;
+    width: 50%;
+}
 
+.home h3:hover .h-playlist-icon {
+    transform: translate(10px, 0);
 }
-.home h3:hover .h-playlist-icon{
-    transform: translate(10px,0);
-}
-.h-playlist-span{
+
+.h-playlist-span {
     background-color: #f5c518;
     height: 1.5rem;
     width: 5px;
@@ -39,7 +42,7 @@
     margin: 0 5px 0 0;
 }
 
-.h-playlist-icon{
+.h-playlist-icon {
     margin: 6px 0 0 0;
     transition: 0.3s ease-in-out;
     color: #f5c518;
@@ -48,17 +51,22 @@
 
 .home hr {
     border-color: #FACF5A;
-    width: 70vw;
-    margin: 0 0 0 3.5vw;
+    width: 94%;
+    margin: auto;
+}
+
+.h-media-wrapper {
+    width: 100%;
 }
 
 .h-media {
     text-align: center;
     margin: auto;
     padding: 1vw;
+    width: 100%;
 }
 
 .h-media div {
     display: inline-block;
-    margin: 1rem;
+    margin: 1%;
 }
