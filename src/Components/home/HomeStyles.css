@@ -70,3 +70,19 @@
     display: inline-block;
     margin: 1%;
 }
+.h-show-more{
+    font-size: 1.1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 35px;
+    background-color: var(--text-yellow);
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    margin: 20px auto 0;
+}
+.h-show-more:hover{
+    transform: scale(1.06);
+}

@@ -6,6 +6,7 @@ import { PiTelevisionBold } from 'react-icons/pi'
 import Spinner from "../Spinner/Spinner";
 import { useDispatch } from "react-redux"
 import {login} from '../../store/slice/userSlice'
+import Cookies from "js-cookie";
 
 
 const Login = () => {
@@ -46,8 +47,9 @@ const dispatch=useDispatch()
         try {
             setSubmitState()
             const check = await axios.post(backend_link + '/login', { credentials });
-            if (check.data) {
-                dispatch(login(check.data))
+            if (check.data.data) {
+                dispatch(login(check.data.data))
+                Cookies.set('filmyRadarCredentials',JSON.stringify(check.data),{expires:30})
                 navigateTo('/')
             }
             else {
@@ -56,7 +58,7 @@ const dispatch=useDispatch()
             }
         }
         catch (error) {
-            console.log('error');
+            console.log(error);
         }
     };
 

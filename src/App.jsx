@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import LogIn from './Routes/Login';
-import Register from './Routes/Register';
-import HomePage from './Routes/HomePage';
+import LogIn from './Routes/LoginRoute';
+import Register from './Routes/RegisterRoute';
+import HomePage from './Routes/HomePageRoute';
 import MediaInfoRoute from './Routes/MediaInfoRoute';
 import SearchRoute from './Routes/SearchRoute';
 

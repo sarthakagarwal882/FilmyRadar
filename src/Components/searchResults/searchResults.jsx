@@ -8,6 +8,7 @@ import './searchResultsStyles.css'
 
 const SearchResults = (props) => {
     const [data, setData] = useState(null)
+    // eslint-disable-next-line react/prop-types
     const searchText = props.query
     async function getData() {
         const queryResult = await (axios.post(backend_ref + "/search", { searchText }))

@@ -7,7 +7,9 @@ import Spinner from '../Spinner/Spinner';
 import { MdKeyboardArrowRight } from 'react-icons/md'
 
 
+
 const Home = () => {
+
     const [dataLength, setDataLength] = useState({})
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
@@ -175,11 +177,14 @@ const Home = () => {
                 }
             }
         }
-        console.log(dataLength);
+        // console.log(dataLength);
 
         fetch()
     }, [backend_link, count])
 
+    function handleShowMore() {
+        // console.log(e.target.className);
+    }
 
     return (
         <div className='h-wrapper'>
@@ -193,16 +198,13 @@ const Home = () => {
                         <h2>Movies</h2>
                         <hr />
                         <h3><span className='h-playlist-span'></span>Top rated<MdKeyboardArrowRight className='h-playlist-icon' /></h3>
-                        {/* <div> {dataLength[0].map((item) => {
-                            setDataLength
-                            return (<p key={3-item+1}>{3-item+1}</p>)
-                            })} </div> */}
+
                         <div className='h-media'>
                             {data.length > 0 && data[0].map((item) => {
                                 return (
                                     <MediaCard key={item.id} data={item} />)
                             })}
-                            
+                            <span className='h-show-more' key='movie-top' onClick={handleShowMore}>Show more</span>
                         </div>
                         <h3><span className='h-playlist-span'></span>Now playing<MdKeyboardArrowRight className='h-playlist-icon' /></h3>
                         <div className='h-media' key={2}>
