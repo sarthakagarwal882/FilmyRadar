@@ -6,6 +6,8 @@ import { useState } from "react";
 import Spinner from '../Spinner/Spinner';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/slice/userSlice';
+import backend_ref from '../BackendRef';
+import Cookies from 'js-cookie';
 const SignUp = () => {
     const dispatch = useDispatch()
     const [regState, setRegState] = useState('true')
@@ -25,14 +27,6 @@ const SignUp = () => {
         female: false,
         other: false
     })
-    let backend_link;
-    if (import.meta.env.MODE === 'production') {
-        backend_link = import.meta.env.VITE_SERVER_LINK
-    }
-    else if (import.meta.env.MODE === 'development') {
-        backend_link = import.meta.env.VITE_LOCAL_LINK
-    }
-
 
 
     function handleSubmit(e) {
@@ -54,10 +48,12 @@ const SignUp = () => {
 
     async function sendData() {
 
-        const check = await axios.post(backend_link + "/register", { formData });
-        if (check.data) {
+        const check = await axios.post(backend_ref + "/register", { formData });
+        console.log(check);
+        if (check.data.data) {
+            Cookies.set('filmyRadarCredentials',JSON.stringify({token:check.data.token}),{expires:30})
             dispatch(login(check.data))
-            navigateTo('/', { state: check.data });
+            navigateTo('/');
         }
         else if (check.data === false) {
             setRegState('true')
