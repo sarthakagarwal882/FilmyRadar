@@ -7,7 +7,7 @@ import Spinner from "../Spinner/Spinner";
 import { useDispatch } from "react-redux"
 import {login} from '../../store/slice/userSlice'
 import Cookies from "js-cookie";
-
+import backend_ref from "../BackendRef";
 
 const Login = () => {
 
@@ -19,13 +19,6 @@ const dispatch=useDispatch()
         username: "",
         password: ""
     });
-    let backend_link;
-    if (import.meta.env.MODE === 'production') {
-        backend_link = import.meta.env.VITE_SERVER_LINK
-    }
-    else if (import.meta.env.MODE === 'development') {
-        backend_link = import.meta.env.VITE_LOCAL_LINK
-    }
 
 
 
@@ -46,9 +39,10 @@ const dispatch=useDispatch()
         e.preventDefault()
         try {
             setSubmitState()
-            const check = await axios.post(backend_link + '/login', { credentials });
+            const check = await axios.post(backend_ref + '/login', { credentials });
             if (check.data.data) {
                 dispatch(login(check.data.data))
+                console.log(check.data);
                 Cookies.set('filmyRadarCredentials',JSON.stringify(check.data),{expires:30})
                 navigateTo('/')
             }
