@@ -42,8 +42,8 @@ const dispatch=useDispatch()
             const check = await axios.post(backend_ref + '/login', { credentials });
             if (check.data.data) {
                 dispatch(login(check.data.data))
-                console.log(check.data);
-                Cookies.set('filmyRadarCredentials',JSON.stringify(check.data),{expires:30})
+                Cookies.set('filmyRadarCredentials',JSON.stringify({token:check.data.token}),{expires:30})
+                // console.log(JSON.parse(Cookies.get('filmyRadarCredentials')))
                 navigateTo('/')
             }
             else {
