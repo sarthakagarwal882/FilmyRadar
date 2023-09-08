@@ -11,7 +11,6 @@ const HomePage = () => {
 
     const checkCookiedata = async (data) => {
         let check = await axios.post(backend_ref + '/verify', data)
-        console.log(check.data);
         if (check.data==='true')
             dispatch(login(JSON.parse(credentials).data))
 
@@ -22,6 +21,7 @@ const HomePage = () => {
     else {
         checkCookiedata(JSON.parse(credentials))
     }
+
     return (
         <div >
             <Navbar />

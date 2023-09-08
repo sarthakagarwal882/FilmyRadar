@@ -26,6 +26,7 @@ const Home = () => {
             if (count === 0) {
                 try {
                     let info = (await axios.get(backend_link + '/movie/top_rated')).data
+                    setData([info])
                     if ((info.length) % 8 === 0)
                         setDataLength(
                             {
@@ -40,7 +41,6 @@ const Home = () => {
                                 'm-top': (Math.floor(((info.length) / 8) + 1))
                             }
                         )
-                    setData([info])
                     let a = count + 1
                     setCount(a)
                 }
@@ -52,6 +52,13 @@ const Home = () => {
             if (count === 1) {
                 try {
                     let info = (await axios.get(backend_link + '/movie/now_playing')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
+
+                    )
                     if ((info.length) % 8 === 0)
                         setDataLength(
                             {
@@ -66,13 +73,6 @@ const Home = () => {
                                 'm-now': Math.floor(((info.length) / 8) + 1)
                             }
                         )
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
-
-                    )
                     let a = count + 1
                     setCount(a)
                 }
@@ -84,6 +84,13 @@ const Home = () => {
             if (count === 2) {
                 try {
                     let info = (await axios.get(backend_link + '/movie/popular')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
+
+                    )
                     if ((info.length) % 8 === 0)
                         setDataLength(
                             {
@@ -98,13 +105,6 @@ const Home = () => {
                                 'm-pop': Math.floor(((info.length) / 8) + 1)
                             }
                         )
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
-
-                    )
                     let a = count + 1
                     setCount(a)
                 }
@@ -116,6 +116,13 @@ const Home = () => {
             if (count === 3) {
                 try {
                     let info = (await axios.get(backend_link + '/tv/popular')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
+
+                    )
                     if ((info.length) % 8 === 0)
                         setDataLength(
                             {
@@ -130,13 +137,6 @@ const Home = () => {
                                 'tv-pop': Math.floor(((info.length) / 8) + 1)
                             }
                         )
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
-
-                    )
                     let a = count + 1
                     setCount(a)
                 }
@@ -148,6 +148,13 @@ const Home = () => {
             if (count === 4) {
                 try {
                     let info = (await axios.get(backend_link + '/tv/top_rated')).data
+                    setData((prevValue) =>
+                        [
+                            ...prevValue,
+                            info
+                        ]
+
+                    )
                     if ((info.length) % 8 === 0)
                         setDataLength(
                             {
@@ -162,13 +169,6 @@ const Home = () => {
                                 'tv-top': Math.floor(((info.length) / 8) + 1)
                             }
                         )
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
-
-                    )
                     let a = count + 1
                     setCount(a)
                 }
@@ -178,6 +178,7 @@ const Home = () => {
             }
         }
         // console.log(dataLength);
+        console.log(data)
 
         fetch()
     }, [backend_link, count])
