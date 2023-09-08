@@ -177,10 +177,9 @@ const Home = () => {
                 }
             }
         }
-        // console.log(dataLength);
-        console.log(data)
 
         fetch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [backend_link, count])
 
     function handleShowMore() {

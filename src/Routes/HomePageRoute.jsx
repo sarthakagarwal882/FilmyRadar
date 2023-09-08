@@ -7,20 +7,18 @@ import axios from "axios";
 import backend_ref from "../Components/BackendRef";
 import { useState } from "react";
 const HomePage = () => {
-    const [returnState, setReturnState] = useState(null)
-    const dispatch = useDispatch()
     const credentials = ((Cookies.get('filmyRadarCredentials')))
+    const [returnState, setReturnState] = useState((credentials === undefined) ? 'true' : null)
+    const dispatch = useDispatch()
     const checkCookiedata = async (data) => {
         let check = await axios.post(backend_ref + '/verify', data)
-        setReturnState(check);
+        setReturnState('true')
         if (check.data === 'true')
             dispatch(login(JSON.parse(credentials).data))
     }
-    if (credentials === undefined)
-        null
-    else {
+
+    if (credentials !== undefined)
         checkCookiedata(JSON.parse(credentials))
-    }
 
     return (
         (returnState) ?
