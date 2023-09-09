@@ -5,9 +5,15 @@ import { useDispatch } from 'react-redux';
 import { login } from '../store/slice/userSlice';
 import axios from "axios";
 import backend_ref from "../Components/BackendRef";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 const HomePage = () => {
+
+    useEffect(() => {
+        document.title = 'FilmyRadar';
+      }, []);
+
     const credentials = ((Cookies.get('filmyRadarCredentials')))
     const [returnState, setReturnState] = useState((credentials === undefined) ? 'true' : null)
     const dispatch = useDispatch()
