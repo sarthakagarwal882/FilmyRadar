@@ -32,7 +32,7 @@ const navigateTo=useNavigate()
             </Link>
             <div className="nav-search">
                 <form onSubmit={handleFormSubmit}>
-                    <input type="text" placeholder="Movies, TV shows, Person" onChange={handleSearchChange} value={searchText} />
+                    <input type="text" placeholder="Movies, TV shows" onChange={handleSearchChange} value={searchText} />
                     <button type="submit"><BiSearch /></button>
                 </form>
             </div>
