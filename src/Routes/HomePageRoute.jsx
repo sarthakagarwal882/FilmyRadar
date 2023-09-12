@@ -10,9 +10,6 @@ import { useState, useEffect } from "react";
 
 const HomePage = () => {
 
-    useEffect(() => {
-        document.title = 'FilmyRadar';
-      }, []);
 
     const credentials = ((Cookies.get('filmyRadarCredentials')))
     const [returnState, setReturnState] = useState((credentials === undefined) ? 'true' : null)

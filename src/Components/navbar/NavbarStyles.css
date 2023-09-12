@@ -6,10 +6,12 @@
     height: 4rem;
     text-align: center;
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
     color: #fff;
 }
+
 .navbar h1 {
     display: flex;
     flex-direction: row;
@@ -18,13 +20,16 @@
     font-weight: 700;
     cursor: pointer;
 }
-.navbar h1 svg{
+
+.navbar h1 svg {
     margin: 0.3rem;
 }
-.nav-h-span{
+
+.nav-h-span {
     color: #ff3d3d;
     font-size: 2.1rem;
 }
+
 .nav-search {
     padding: 5px 0 0 0 !important;
     display: flex;
@@ -70,9 +75,11 @@
     width: 2.5rem;
     transition: 0.2s ease-in-out;
 }
-.nav-search form button:hover{
+
+.nav-search form button:hover {
     background-color: #ff3d3d;
 }
+
 .navbar form button svg {
     margin: 0;
     font-size: 1.3rem;
@@ -89,9 +96,9 @@
     border-radius: 5px;
 }
 
-.nav-auth div:hover{
+.nav-auth div:hover {
     /* border: 1px solid #fff; */
-    background-color:#303134;
+    background-color: #303134;
 }
 
 .nav-auth {
@@ -100,10 +107,11 @@
     margin: auto 2vw auto 0;
 }
 
-.nav-auth  a {
+.nav-auth a {
     text-decoration: none;
 }
-.profile-div{
+
+.profile-div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -111,7 +119,8 @@
     margin: auto 2vw 0 0 !important;
     cursor: pointer;
 }
-.profile-img-male{
+
+.profile-img-male {
     background: url('../../assets/man.png');
     background-size: cover;
     border: none;
@@ -119,9 +128,10 @@
     width: 2rem;
     height: 2rem;
     padding: 0;
-    margin: 0 0 0 1rem;   
+    margin: 0 0 0 1rem;
 }
-.profile-img-female{
+
+.profile-img-female {
     background: url('../../assets/woman.png');
     background-size: cover;
     border: none;
@@ -129,5 +139,48 @@
     width: 2rem;
     height: 2rem;
     padding: 0;
-    margin: 0;   
+    margin: 0;
+}
+
+.nav-dropdown {
+    margin: 1rem 0 0 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-drop-menu {
+    /* display: none; */
+    /* display: flex; */
+    flex-direction: column;
+    position: absolute;
+    padding: 5px 0 5px 0 !important;
+    margin: 0 !important;
+    right: 1.7rem;
+    top: 4rem;
+    width: 10rem;
+    height: 9rem;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 61);
+}
+
+.nav-drop-menu:nth-child(1) {
+
+}
+
+.nav-drop-menu hr {
+    height: 1px;
+    border: #6c6c6d solid 1px;
+}
+
+.nav-drop-menu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    transition: 0.2s;
+}
+
+.nav-drop-menu a:hover {
+    background-color: rgb(153, 153, 153);
 }

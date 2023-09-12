@@ -1,21 +1,23 @@
-import {useState } from "react";
+import { useState } from "react";
 import { BiSearch } from 'react-icons/bi'
 import { PiTelevisionBold } from 'react-icons/pi'
 import { Link, useNavigate } from 'react-router-dom'
 import './NavbarStyles.css'
 import { useSelector } from "react-redux";
 const Navbar = () => {
-const navigateTo=useNavigate()
+    const navigateTo = useNavigate()
     const state = useSelector((userInfo) => { return (userInfo.user.data) })
+    const [dropdown,setDropdown]=useState('none')
     const [searchText, setSearchText] = useState("")
 
+    document.body.onClick=(()=>setDropdown('none'))
 
     function handleSearchChange(data) {
         setSearchText(data.target.value);
     }
     async function handleFormSubmit(e) {
         e.preventDefault();
-        navigateTo('/search?query='+searchText)        
+        navigateTo('/search?query=' + searchText)
     }
     function setProfileImg() {
         if (state.gender === 'male')
@@ -25,6 +27,11 @@ const navigateTo=useNavigate()
         else
             return ('profile-img-female')
     }
+
+function dropdownSetting(){
+    setDropdown((dropdown=='none')?'flex':'none')
+}
+
     return (
         <div className="navbar" >
             <Link to='/'>
@@ -37,9 +44,24 @@ const navigateTo=useNavigate()
                 </form>
             </div>
             {('username' in state) ?
-                <div className="profile-div">
-                    <p>{state.username}</p>
-                    <span className={setProfileImg()}></span>
+                <div className="nav-dropdown">
+                    <div onClick={dropdownSetting} className="profile-div">
+                        <p>{state.username}</p>
+                        <span className={setProfileImg()}></span>
+                    </div>
+                    <div className="nav-drop-menu" onMouseLeave={dropdownSetting} style={{display:dropdown}}>
+                        <Link>
+                            <span>dashboard</span>
+                        </Link>
+                        <hr />
+                        <Link>
+                            <span>profile</span>
+                        </Link>
+                        <hr />
+                        <Link>
+                            <span>logout</span>
+                        </Link>
+                    </div>
                 </div>
                 :
                 <div className="nav-auth">
