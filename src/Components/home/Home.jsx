@@ -5,11 +5,15 @@ import './HomeStyles.css'
 import axios from 'axios'
 import Spinner from '../Spinner/Spinner';
 import { MdKeyboardArrowRight } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux';
+import { loadData } from '../../store/slice/homeData';
 
 
 
 const Home = () => {
-
+    let homeData = useSelector((store) => { return (store.home) })
+    const dispatch = useDispatch();
+    // console.log(homeData);
     const [dataLength, setDataLength] = useState({})
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
@@ -21,26 +25,33 @@ const Home = () => {
         backend_link = import.meta.env.VITE_LOCAL_LINK
     }
     useEffect(() => {
+
         const fetch = async () => {
 
             if (count === 0) {
                 try {
-                    let info = (await axios.get(backend_link + '/movie/top_rated')).data
-                    setData([info])
-                    if ((info.length) % 8 === 0)
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-top': Math.floor((info.length) / 8)
-                            }
-                        )
-                    else
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-top': (Math.floor(((info.length) / 8) + 1))
-                            }
-                        )
+                    if (homeData.length >= 1) {
+                        setData([homeData[0]])
+                    }
+                    else {
+                        let info = (await axios.get(backend_link + '/movie/top_rated')).data
+                        setData([info])
+                        dispatch(loadData(info))
+                    }
+                    // if ((info.length) % 8 === 0)
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-top': Math.floor((info.length) / 8)
+                    //         }
+                    //     )
+                    // else
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-top': (Math.floor(((info.length) / 8) + 1))
+                    //         }
+                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -51,92 +62,112 @@ const Home = () => {
             }
             if (count === 1) {
                 try {
-                    let info = (await axios.get(backend_link + '/movie/now_playing')).data
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
+                    if (homeData.length >= 2) {
+                        setData([...data
+                            , homeData[1]])
+                    }
+                    else {
 
-                    )
-                    if ((info.length) % 8 === 0)
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-now': Math.floor((info.length) / 8)
-                            }
+                        let info = (await axios.get(backend_link + '/movie/now_playing')).data
+                        setData((prevValue) =>
+                            [
+                                ...prevValue,
+                                info
+                            ]
                         )
-                    else
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-now': Math.floor(((info.length) / 8) + 1)
-                            }
-                        )
+                        dispatch(loadData(info))
+                    }
+
+                    // if ((info.length) % 8 === 0)
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-now': Math.floor((info.length) / 8)
+                    //         }
+                    //     )
+                    // else
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-now': Math.floor(((info.length) / 8) + 1)
+                    //         }
+                    //     )
                     let a = count + 1
                     setCount(a)
                 }
                 catch (err) {
                     console.log(err);
                 }
-
             }
             if (count === 2) {
                 try {
-                    let info = (await axios.get(backend_link + '/movie/popular')).data
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
+                    if (homeData.length >= 3) {
+                        setData([...data, homeData[2]])
+                    }
+                    else {
 
-                    )
-                    if ((info.length) % 8 === 0)
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-pop': Math.floor((info.length) / 8)
-                            }
+                        let info = (await axios.get(backend_link + '/movie/popular')).data
+                        setData((prevValue) =>
+                            [
+                                ...prevValue,
+                                info
+                            ]
                         )
-                    else
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'm-pop': Math.floor(((info.length) / 8) + 1)
-                            }
-                        )
+                        dispatch(loadData(info))
+                    }
+
+                    // if ((info.length) % 8 === 0)
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-pop': Math.floor((info.length) / 8)
+                    //         }
+                    //     )
+                    // else
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'm-pop': Math.floor(((info.length) / 8) + 1)
+                    //         }
+                    //     )
                     let a = count + 1
                     setCount(a)
                 }
                 catch (err) {
                     console.log(err);
                 }
-
             }
             if (count === 3) {
                 try {
-                    let info = (await axios.get(backend_link + '/tv/popular')).data
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
+                    if (homeData.length >= 4) {
+                        setData([...data, homeData[3]])
+                    }
+                    else {
 
-                    )
-                    if ((info.length) % 8 === 0)
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'tv-pop': Math.floor((info.length) / 8)
-                            }
+                        let info = (await axios.get(backend_link + '/tv/popular')).data
+                        setData((prevValue) =>
+                            [
+                                ...prevValue,
+                                info
+                            ]
                         )
-                    else
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'tv-pop': Math.floor(((info.length) / 8) + 1)
-                            }
-                        )
+                        dispatch(loadData(info))
+                    }
+
+                    // if ((info.length) % 8 === 0)
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'tv-pop': Math.floor((info.length) / 8)
+                    //         }
+                    //     )
+                    // else
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'tv-pop': Math.floor(((info.length) / 8) + 1)
+                    //         }
+                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -147,28 +178,35 @@ const Home = () => {
             }
             if (count === 4) {
                 try {
-                    let info = (await axios.get(backend_link + '/tv/top_rated')).data
-                    setData((prevValue) =>
-                        [
-                            ...prevValue,
-                            info
-                        ]
+                    if (homeData.length >= 5) {
+                        setData([...data
+                            , homeData[4]])
+                    }
+                    else {
 
-                    )
-                    if ((info.length) % 8 === 0)
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'tv-top': Math.floor((info.length) / 8)
-                            }
+                        let info = (await axios.get(backend_link + '/tv/top_rated')).data
+                        setData((prevValue) =>
+                            [
+                                ...prevValue,
+                                info
+                            ]
                         )
-                    else
-                        setDataLength(
-                            {
-                                ...dataLength,
-                                'tv-top': Math.floor(((info.length) / 8) + 1)
-                            }
-                        )
+                        dispatch(loadData(info))
+                    }
+                    // if ((info.length) % 8 === 0)
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'tv-top': Math.floor((info.length) / 8)
+                    //         }
+                    //     )
+                    // else
+                    //     setDataLength(
+                    //         {
+                    //             ...dataLength,
+                    //             'tv-top': Math.floor(((info.length) / 8) + 1)
+                    //         }
+                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -176,10 +214,13 @@ const Home = () => {
                     console.log(err);
                 }
             }
+
         }
 
         fetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        console.log(homeData.length);
+        // console.log(data);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [backend_link, count])
 
     function handleShowMore() {

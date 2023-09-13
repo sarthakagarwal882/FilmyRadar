@@ -4,9 +4,16 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: #2f2f2f;
-    margin:auto;
+    margin: 2rem auto 0;
     width: 40%;
-    height: 80%;
+    height: 37rem;
+}
+
+.signup-home-a {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .signup h1 {
@@ -27,7 +34,7 @@
 }
 
 .i-signup-div {
-    width: 80%;
+    width: 84%;
     text-align: left;
     padding: 1rem 0 0.5rem;
     background-color: #676767 !important;
@@ -45,12 +52,15 @@
     color: #fff;
     font-size: 1.1rem;
 }
-.signup form input:focus{
+
+.signup form input:focus {
     outline: none;
 }
-.i-signup-div input{
+
+.i-signup-div input {
     width: 90%;
 }
+
 .inp-dual {
     width: 100%;
     display: flex;
@@ -61,15 +71,17 @@
 .inp-dual input {
     width: 90% !important;
 }
+
 .inp-dual .i-signup-div {
     margin: 1rem 0.5rem 1rem 0.5rem !important;
 
 }
-.signup form input::placeholder{
+
+.signup form input::placeholder {
     color: #c2c1c1;
 }
 
-.btn-register{
+.btn-register {
     width: 40%;
     margin: 0.7rem auto 0;
     padding: 8px;
@@ -78,17 +90,20 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    background-color:#ff3d3d;
-    color:#fff;
+    background-color: #ff3d3d;
+    color: #fff;
     border: none;
 }
-.btn-register:hover{
+
+.btn-register:hover {
     transform: scale(1.04);
 }
-.signup a{
+
+.signup a {
     width: 60%;
 }
-.signup a button{
+
+.signup a button {
     width: 100%;
     padding: 0.5rem 0 0.5rem 0;
     margin: auto;
@@ -99,31 +114,34 @@
     border: none;
 }
 
-.cf-check-pass{
-    box-shadow: 0px 0px 3px 3px green inset; 
-}
-.cf-check-fail{
-    box-shadow: 0px 0px 3px 1px red inset;        
+.cf-check-pass {
+    box-shadow: 0px 0px 3px 3px green inset;
 }
 
-.gender{
+.cf-check-fail {
+    box-shadow: 0px 0px 3px 1px red inset;
+}
+
+.gender {
     margin: 0 0 1rem 0;
     padding: 1rem 1rem 1rem 0;
     justify-content: space-around;
 }
 
-.gender h3{
+.gender h3 {
     font-size: 1.2rem;
     font-weight: 400;
-    color:#e3e3e3 ;
+    color: #e3e3e3;
 }
-.gender-div{
+
+.gender-div {
     width: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.gender-div div{
+
+.gender-div div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -132,7 +150,8 @@
     border-radius: 5px;
     align-items: center;
 }
-.gender-div div input{
+
+.gender-div div input {
     width: 1.1rem;
     height: 1.1rem;
     accent-color: red;

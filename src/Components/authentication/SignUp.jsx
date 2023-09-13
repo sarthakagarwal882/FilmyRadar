@@ -14,8 +14,7 @@ const SignUp = () => {
     const navigateTo = useNavigate();
     const [cfPassColor, setCfPassColor] = useState("")
     const [formData, setFormData] = useState({
-        fname: "",
-        lname: "",
+        name: "",
         gender: "",
         email: "",
         ph_no: "",
@@ -122,14 +121,13 @@ const SignUp = () => {
 
         <div className='wrapper'>
             <div className='signup'>
+                <Link className='signup-home-a' to='/'>
                 <h1 ><PiTelevisionBold />FilmyRadar</h1>
+                </Link>
                 <form onSubmit={handleSubmit} autoComplete='off'>
                     <div className='inp-dual'>
                         <div className='i-signup-div'>
-                            <input onChange={handleChange} name="fname" type="text" placeholder="First name" value={formData.fname} required />
-                        </div>
-                        <div className='i-signup-div'>
-                            <input onChange={handleChange} name="lname" type="text" placeholder="Last name (Optional)" value={formData.lname} />
+                            <input onChange={handleChange} name="name" type="text" placeholder="Name" value={formData.name} required />
                         </div>
                     </div>
                     <div className='i-signup-div gender'>

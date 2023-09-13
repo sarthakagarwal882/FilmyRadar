@@ -24,7 +24,7 @@ const SearchResults = (props) => {
                     <hr />
                     <div className="s-data">
                         {
-                            data[0].map((item) => { return (<MediaCard key={item.id} data={item} />) })
+                            (data[0].length > 0) ? (data[0].map((item) => { return (<MediaCard key={item.id} data={item} />) })) : <p className="sorry-msg">Sorry! no data availible.</p>
                         }
                     </div>
                 </div>
@@ -33,8 +33,7 @@ const SearchResults = (props) => {
                     <hr />
                     <div className="s-data">
                         {
-                            data[1].map((item) => { return (<MediaCard key={item.id} data={item} />) })
-                        }
+                            (data[1].length > 0) ? (data[1].map((item) => { return (<MediaCard key={item.id} data={item} />) })) : <p className="sorry-msg">Sorry! no data availible.</p>}
                     </div>
                 </div>
             </div >

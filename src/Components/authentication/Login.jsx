@@ -60,7 +60,9 @@ const dispatch=useDispatch()
     return (
         <div className="wrapper">
             <div className="login">
+                <Link className="login-home-a" to={"/"}>
                 <h1 ><PiTelevisionBold />FilmyRadar</h1>
+                </Link>
                 <form onSubmit={handleSubmit} autoComplete="off">
                     <div className="login-form-div">
                         <input data-lpignore="true" onChange={handleChange} name="username" type="text" value={credentials.username} placeholder="User Name" />

@@ -1,10 +1,10 @@
 
 
 .login {
-    margin: auto;
+    margin: 4rem auto 0;
     text-align: center;
     width: 40%;
-    height: 78%;
+    height: 32rem;
     background-color: #2f2f2f;
     display: flex;
     align-items: center;
@@ -14,14 +14,23 @@
 .login h1{
     display: flex;
     align-items: center;
-    margin: -6rem 0 0rem 0 ;
     padding: 0;
 }
 .login h1 svg{
     color: #ff3d3d;
 }
+.login-home-a{
+    margin: -6rem 0 0rem 0 ;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    /* justify-content: center;
+    align-items: center;
+*/
+}
+
 .login form {
-    padding-top: 4rem;
+    padding-top: 2rem;
     margin: 0 0 -4rem 0;
     width: 80%;
     display: flex;

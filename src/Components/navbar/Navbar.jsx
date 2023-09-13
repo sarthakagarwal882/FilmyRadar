@@ -3,14 +3,18 @@ import { BiSearch } from 'react-icons/bi'
 import { PiTelevisionBold } from 'react-icons/pi'
 import { Link, useNavigate } from 'react-router-dom'
 import './NavbarStyles.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/slice/userSlice";
+import Cookies from "js-cookie";
 const Navbar = () => {
     const navigateTo = useNavigate()
-    const state = useSelector((userInfo) => { return (userInfo.user.data) })
-    const [dropdown,setDropdown]=useState('none')
+    const dispatch = useDispatch()
+    const state = useSelector((store) => { return (store.user.data) })
+    const [dropdown, setDropdown] = useState('none')
     const [searchText, setSearchText] = useState("")
+    // const [dropLinkStyle,setDropLinkStyle]=useState('none')
 
-    document.body.onClick=(()=>setDropdown('none'))
+    document.body.onClick = (() => setDropdown('none'))
 
     function handleSearchChange(data) {
         setSearchText(data.target.value);
@@ -28,9 +32,16 @@ const Navbar = () => {
             return ('profile-img-female')
     }
 
-function dropdownSetting(){
-    setDropdown((dropdown=='none')?'flex':'none')
-}
+    function dropdownSetting() {
+        setDropdown((dropdown == 'none') ? 'flex' : 'none')
+    }
+
+    function handleLogout() {
+        Cookies.remove('filmyRadarCredentials')
+        dispatch(login({}))
+        navigateTo('/')
+
+    }
 
     return (
         <div className="navbar" >
@@ -49,18 +60,18 @@ function dropdownSetting(){
                         <p>{state.username}</p>
                         <span className={setProfileImg()}></span>
                     </div>
-                    <div className="nav-drop-menu" onMouseLeave={dropdownSetting} style={{display:dropdown}}>
-                        <Link>
+                    <div className="nav-drop-menu" onMouseLeave={dropdownSetting} style={{ display: dropdown }}>
+                        <div onClick={handleLogout}>
                             <span>dashboard</span>
-                        </Link>
+                        </div>
                         <hr />
-                        <Link>
+                        <div onClick={handleLogout}>
                             <span>profile</span>
-                        </Link>
+                        </div>
                         <hr />
-                        <Link>
+                        <div onClick={handleLogout}>
                             <span>logout</span>
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 :
@@ -76,8 +87,10 @@ function dropdownSetting(){
                         </div>
                     </Link>
                 </div>
+                
             }
-        </div>
+
+        </div >
     );
 };
 export default Navbar;

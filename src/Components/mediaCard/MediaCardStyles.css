@@ -5,8 +5,9 @@
     overflow: hidden;
     transition: 0.1s ease-in-out;
 }
-.mediacard:hover{
-    transform: scale(1.02,1.02);
+
+.mediacard:hover {
+    transform: scale(1.02, 1.02);
 }
 
 .mediacard-link {
@@ -54,7 +55,7 @@
     margin: 3px 0 3px 0;
 }
 
-.mediacard-ul p{
+.mediacard-ul p {
     font-size: 0.9rem;
 }
 
@@ -107,8 +108,24 @@
     margin: 0 !important;
 }
 
-.get-info  {
+.get-info {
     /* height: 100px; */
     font-size: 1.2rem;
     margin: 0 0 0 0;
+}
+
+@media only screen and (max-width: 900px) {
+    .mediacard{
+        width: 30% !important;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .mediacard{
+        width: 20%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .mediacard{
+        width: 40% !important;
+    }
 }

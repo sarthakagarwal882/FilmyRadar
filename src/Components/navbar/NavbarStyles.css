@@ -150,8 +150,6 @@
 }
 
 .nav-drop-menu {
-    /* display: none; */
-    /* display: flex; */
     flex-direction: column;
     position: absolute;
     padding: 5px 0 5px 0 !important;
@@ -164,16 +162,14 @@
     background-color: rgb(61, 61, 61);
 }
 
-.nav-drop-menu:nth-child(1) {
-
-}
-
 .nav-drop-menu hr {
     height: 1px;
     border: #6c6c6d solid 1px;
 }
 
-.nav-drop-menu a {
+.nav-drop-menu div {
+    cursor: pointer;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,6 +177,17 @@
     transition: 0.2s;
 }
 
-.nav-drop-menu a:hover {
+.nav-drop-menu div:hover {
     background-color: rgb(153, 153, 153);
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .navbar{
+        
+    }
+}
+@media only screen and (max-width: 1100px) {
+
 }
