@@ -14,7 +14,7 @@ const Home = () => {
     let homeData = useSelector((store) => { return (store.home) })
     const dispatch = useDispatch();
     // console.log(homeData);
-    const [dataLength, setDataLength] = useState({})
+    // const [dataLength, setDataLength] = useState({})
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
     let backend_link;
@@ -143,8 +143,9 @@ const Home = () => {
                         setData([...data, homeData[3]])
                     }
                     else {
-
+                        console.log('tv-pop');
                         let info = (await axios.get(backend_link + '/tv/popular')).data
+                        console.log(info);
                         setData((prevValue) =>
                             [
                                 ...prevValue,
@@ -183,7 +184,7 @@ const Home = () => {
                             , homeData[4]])
                     }
                     else {
-
+                        console.log('tv-top');
                         let info = (await axios.get(backend_link + '/tv/top_rated')).data
                         setData((prevValue) =>
                             [

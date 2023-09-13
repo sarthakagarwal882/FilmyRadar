@@ -95,11 +95,16 @@
     .h-wrapper {
         width: 100vw;
     }
+
+    .home h3:hover .h-playlist-icon {
+        transform: translate(0);
+    }
 }
 
 @media only screen and (max-width: 900px) {
-    .mediacard {
-        width: 20%;
+
+    .home h3:hover .h-playlist-icon {
+        transform: translate(0);
     }
 
 }
@@ -129,6 +134,7 @@
         position: relative;
         width: 50%;
     }
+
     .home h3:hover .h-playlist-icon {
         transform: translate(0);
     }
