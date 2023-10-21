@@ -13,13 +13,10 @@ import backend_ref from '../BackendRef';
 const Home = () => {
     let homeData = useSelector((store) => { return (store.home) })
     const dispatch = useDispatch();
-    // console.log(homeData);
-    // const [dataLength, setDataLength] = useState({})
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-
         const fetch = async () => {
 
             if (count === 0) {
@@ -32,20 +29,6 @@ const Home = () => {
                         setData([info])
                         dispatch(loadData(info))
                     }
-                    // if ((info.length) % 8 === 0)
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-top': Math.floor((info.length) / 8)
-                    //         }
-                    //     )
-                    // else
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-top': (Math.floor(((info.length) / 8) + 1))
-                    //         }
-                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -72,20 +55,6 @@ const Home = () => {
                         dispatch(loadData(info))
                     }
 
-                    // if ((info.length) % 8 === 0)
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-now': Math.floor((info.length) / 8)
-                    //         }
-                    //     )
-                    // else
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-now': Math.floor(((info.length) / 8) + 1)
-                    //         }
-                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -110,20 +79,6 @@ const Home = () => {
                         dispatch(loadData(info))
                     }
 
-                    // if ((info.length) % 8 === 0)
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-pop': Math.floor((info.length) / 8)
-                    //         }
-                    //     )
-                    // else
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'm-pop': Math.floor(((info.length) / 8) + 1)
-                    //         }
-                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -149,20 +104,6 @@ const Home = () => {
                         dispatch(loadData(info))
                     }
 
-                    // if ((info.length) % 8 === 0)
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'tv-pop': Math.floor((info.length) / 8)
-                    //         }
-                    //     )
-                    // else
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'tv-pop': Math.floor(((info.length) / 8) + 1)
-                    //         }
-                    //     )
                     let a = count + 1
                     setCount(a)
                 }
@@ -188,20 +129,7 @@ const Home = () => {
                         )
                         dispatch(loadData(info))
                     }
-                    // if ((info.length) % 8 === 0)
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'tv-top': Math.floor((info.length) / 8)
-                    //         }
-                    //     )
-                    // else
-                    //     setDataLength(
-                    //         {
-                    //             ...dataLength,
-                    //             'tv-top': Math.floor(((info.length) / 8) + 1)
-                    //         }
-                    //     )
+
                     let a = count + 1
                     setCount(a)
                 }
@@ -213,14 +141,8 @@ const Home = () => {
         }
 
         fetch()
-        console.log(homeData.length);
-        // console.log(data);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [backend_ref, count])
 
-    function handleShowMore() {
-        // console.log(e.target.className);
-    }
 
     return (
         <div className='h-wrapper'>
@@ -240,7 +162,7 @@ const Home = () => {
                                 return (
                                     <MediaCard key={item.id} data={item} />)
                             })}
-                            <span className='h-show-more' key='movie-top' onClick={handleShowMore}>Show more</span>
+                            {/* <span className='h-show-more' key='movie-top'>Show more</span> */}
                         </div>
                         <h3><span className='h-playlist-span'></span>Now playing<MdKeyboardArrowRight className='h-playlist-icon' /></h3>
                         <div className='h-media' key={2}>
