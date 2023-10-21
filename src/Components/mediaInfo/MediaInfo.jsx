@@ -8,22 +8,17 @@ import './MediaInfoStyles.css'
 import axios from 'axios'
 import Spinner from '../Spinner/Spinner'
 import { useSelector } from 'react-redux'
+import backend_ref from '../BackendRef'
 const MediaInfo = (props) => {
     const stateInfo = useSelector((info) => { return (info.user.data) })
     const [data, setData] = useState('')
     let count = 0
     // eslint-disable-next-line react/prop-types
     const { id, type } = props
-    let backend_link;
-    if (import.meta.env.MODE === 'production') {
-        backend_link = import.meta.env.VITE_SERVER_LINK
-    }
-    else if (import.meta.env.MODE === 'development') {
-        backend_link = import.meta.env.VITE_LOCAL_LINK
-    }
+
 
     function getData() {
-        const info = axios.post(backend_link + '/searchInfo', { id, type })
+        const info = axios.post(backend_ref + '/searchInfo', { id, type })
         info.then((res) => { setData(res.data); })
     }
     useEffect(getData, [])
