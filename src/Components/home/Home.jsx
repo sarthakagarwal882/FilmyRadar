@@ -7,7 +7,7 @@ import Spinner from '../Spinner/Spinner';
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadData } from '../../store/slice/homeData';
-
+import backend_ref from '../BackendRef';
 
 
 const Home = () => {
@@ -17,13 +17,7 @@ const Home = () => {
     // const [dataLength, setDataLength] = useState({})
     const [data, setData] = useState([])
     const [count, setCount] = useState(0)
-    let backend_link;
-    if (import.meta.env.MODE === 'production') {
-        backend_link = import.meta.env.VITE_SERVER_LINK
-    }
-    else if (import.meta.env.MODE === 'development') {
-        backend_link = import.meta.env.VITE_LOCAL_LINK
-    }
+
     useEffect(() => {
 
         const fetch = async () => {
@@ -34,7 +28,7 @@ const Home = () => {
                         setData([homeData[0]])
                     }
                     else {
-                        let info = (await axios.get(backend_link + '/movie/top_rated')).data
+                        let info = (await axios.get(backend_ref + '/movie/top_rated')).data
                         setData([info])
                         dispatch(loadData(info))
                     }
@@ -68,7 +62,7 @@ const Home = () => {
                     }
                     else {
 
-                        let info = (await axios.get(backend_link + '/movie/now_playing')).data
+                        let info = (await axios.get(backend_ref + '/movie/now_playing')).data
                         setData((prevValue) =>
                             [
                                 ...prevValue,
@@ -106,7 +100,7 @@ const Home = () => {
                     }
                     else {
 
-                        let info = (await axios.get(backend_link + '/movie/popular')).data
+                        let info = (await axios.get(backend_ref + '/movie/popular')).data
                         setData((prevValue) =>
                             [
                                 ...prevValue,
@@ -144,7 +138,7 @@ const Home = () => {
                     }
                     else {
                         console.log('tv-pop');
-                        let info = (await axios.get(backend_link + '/tv/popular')).data
+                        let info = (await axios.get(backend_ref + '/tv/popular')).data
                         console.log(info);
                         setData((prevValue) =>
                             [
@@ -185,7 +179,7 @@ const Home = () => {
                     }
                     else {
                         console.log('tv-top');
-                        let info = (await axios.get(backend_link + '/tv/top_rated')).data
+                        let info = (await axios.get(backend_ref + '/tv/top_rated')).data
                         setData((prevValue) =>
                             [
                                 ...prevValue,
@@ -222,7 +216,7 @@ const Home = () => {
         console.log(homeData.length);
         // console.log(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [backend_link, count])
+    }, [backend_ref, count])
 
     function handleShowMore() {
         // console.log(e.target.className);
