@@ -9,9 +9,10 @@ import axios from 'axios'
 import Spinner from '../Spinner/Spinner'
 import { useSelector } from 'react-redux'
 const MediaInfo = (props) => {
-    const stateInfo=useSelector((info)=>{return(info.user.data)})
+    const stateInfo = useSelector((info) => { return (info.user.data) })
     const [data, setData] = useState('')
     let count = 0
+    // eslint-disable-next-line react/prop-types
     const { id, type } = props
     let backend_link;
     if (import.meta.env.MODE === 'production') {
@@ -28,10 +29,10 @@ const MediaInfo = (props) => {
     useEffect(getData, [])
 
     async function handleWishlist() {
-        if('username' in stateInfo)
+        if ('username' in stateInfo)
             console.log('ready');
         else
-        console.log('not ready');
+            console.log('not ready');
 
     }
     if (data == '')

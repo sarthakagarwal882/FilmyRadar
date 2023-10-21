@@ -163,3 +163,23 @@
     align-items: center;
     margin: 32vh 0 0 0;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .media-info {
+        height: 92vh;
+        background-color: #222222;
+        padding: 2rem 1rem 0;
+    }
+    .media-info-intro {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .media-info-title p {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}

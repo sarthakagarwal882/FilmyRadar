@@ -9,6 +9,7 @@ import { login } from '../../store/slice/userSlice';
 import backend_ref from '../BackendRef';
 import Cookies from 'js-cookie';
 const SignUp = () => {
+    
     const dispatch = useDispatch()
     const [regState, setRegState] = useState('true')
     const navigateTo = useNavigate();
