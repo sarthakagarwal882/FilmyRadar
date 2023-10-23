@@ -4,7 +4,7 @@ import { PiTelevisionBold } from 'react-icons/pi'
 import { Link, useNavigate } from 'react-router-dom'
 import './NavbarStyles.css'
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/slice/userSlice";
+import { login } from "../store/slice/userSlice";
 import Cookies from "js-cookie";
 const Navbar = () => {
     const navigateTo = useNavigate()
@@ -44,13 +44,13 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar" >
+        <div className="navbar">
             <Link to='/'>
                 <h1><PiTelevisionBold /><span className="nav-h-span">F</span>ilmy<span className="nav-h-span">R</span>adar</h1>
             </Link>
             <div className="nav-search">
-                <form onSubmit={handleFormSubmit}>
-                    <input type="text" placeholder="Movies, TV shows" onChange={handleSearchChange} value={searchText} />
+                <form onSubmit={handleFormSubmit} >
+                    <input type="text" name="searchbox" placeholder="Movies, TV shows" onChange={handleSearchChange} value={searchText} />
                     <button type="submit"><BiSearch /></button>
                 </form>
             </div>

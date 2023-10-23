@@ -1,5 +1,5 @@
-import Home from "../Components/home/Home"
-import Navbar from "../Components/navbar/Navbar"
+import Home from "../Components/Home"
+import Navbar from "../Components/Navbar"
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/slice/userSlice';

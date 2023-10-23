@@ -1,14 +1,14 @@
-import {useSearchParams} from "react-router-dom"
-import MediaInfo from "../Components/mediaInfo/MediaInfo"
-import Navbar from "../Components/navbar/Navbar"
+/* eslint-disable react/prop-types */
+import {useParams} from "react-router-dom"
+import MediaInfo from "../Components/MediaInfo"
+import Navbar from "../Components/Navbar"
 const MediaInfoRoute = (props) => {
     const category=props.category
-    const [searchParam, setSearchParam] = useSearchParams()
-    let query = searchParam.get('id')
+    const {id} = useParams()
     return (
         <div>
             <Navbar/>
-            <MediaInfo id={query} type={category}/>
+            <MediaInfo id={id} type={category}/>
         </div>
     )
 }

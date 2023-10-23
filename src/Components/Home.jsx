@@ -1,13 +1,14 @@
 
-import MediaCard from '../mediaCard/MediaCard';
+import MediaCard from './MediaCard';
 import { useState, useEffect, } from 'react';
 import './HomeStyles.css'
 import axios from 'axios'
-import Spinner from '../Spinner/Spinner';
+import Spinner from './Spinner/Spinner';
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadData } from '../../store/slice/homeData';
-import backend_ref from '../BackendRef';
+import { loadData } from '../store/slice/homeData';
+import { addData } from '../store/slice/searchResults';
+import backend_ref from './BackendRef';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
+dispatch(addData(""))
         const fetch = async () => {
 
             if (count === 0) {
@@ -92,9 +94,7 @@ const Home = () => {
                         setData([...data, homeData[3]])
                     }
                     else {
-                        console.log('tv-pop');
                         let info = (await axios.get(backend_ref + '/tv/popular')).data
-                        console.log(info);
                         setData((prevValue) =>
                             [
                                 ...prevValue,
@@ -119,7 +119,6 @@ const Home = () => {
                             , homeData[4]])
                     }
                     else {
-                        console.log('tv-top');
                         let info = (await axios.get(backend_ref + '/tv/top_rated')).data
                         setData((prevValue) =>
                             [

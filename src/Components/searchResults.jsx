@@ -1,12 +1,13 @@
-import { useState } from "react";
-import backend_ref from "../BackendRef";
+import { useEffect, useState } from "react";
+import backend_ref from "./BackendRef";
 import axios from "axios";
-import Spinner from "../Spinner/Spinner";
-import MediaCard from "../mediaCard/MediaCard";
+import Spinner from "./Spinner/Spinner";
+import MediaCard from "./MediaCard";
 import './searchResultsStyles.css'
 
 
 const SearchResults = (props) => {
+    useEffect(()=>{console.log('load');},[])
     const [data, setData] = useState(null)
     // eslint-disable-next-line react/prop-types
     const searchText = props.query

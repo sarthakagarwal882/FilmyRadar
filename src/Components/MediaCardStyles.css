@@ -87,7 +87,7 @@
 }
 
 .metacritic-logo {
-    background-image: url('../../assets/metacritic-logo.jpg');
+    background-image: url('../assets/metacritic-logo.jpg');
     background-color: #000000;
     width: 1.7rem;
     height: 1.7rem;

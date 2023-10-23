@@ -1,5 +1,5 @@
-import SearchResults from '../Components/searchResults/searchResults'
-import Navbar from '../Components/navbar/Navbar'
+import SearchResults from '../Components/searchResults'
+import Navbar from '../Components/Navbar'
 import { useSearchParams } from "react-router-dom"
 
 const SearchRoute=()=>{

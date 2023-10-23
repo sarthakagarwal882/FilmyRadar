@@ -121,7 +121,7 @@
 }
 
 .profile-img-male {
-    background: url('../../assets/man.png');
+    background: url('../assets/man.png');
     background-size: cover;
     border: none;
     outline: none;
@@ -132,7 +132,7 @@
 }
 
 .profile-img-female {
-    background: url('../../assets/woman.png');
+    background: url('../assets/woman.png');
     background-size: cover;
     border: none;
     outline: none;
