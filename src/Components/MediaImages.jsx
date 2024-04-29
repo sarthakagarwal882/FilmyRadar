@@ -16,7 +16,15 @@ const MediaImages = () => {
 
   return (
     <div className={classes["img-wrapper"]}>
-        <div className={classes.nav}>Under Development</div>
+        {/* <div className={classes.nav}>
+            <div>
+                {
+                    (Object.keys(data.images))?.map(item=>{<div>
+                        <p>{item}</p>
+                    </div>})
+                }
+            </div>
+        </div> */}
     </div>
   );
 };
