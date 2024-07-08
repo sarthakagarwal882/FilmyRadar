@@ -104,7 +104,7 @@ const MediaInfo = (props) => {
           </div>
           <div className="media-info-media">
             <div className="media-info-trailer">
-              {data === "" ? null : <iframe src={data.videos[0].link}></iframe>}
+              {data === "" ? null : <iframe src={data.videos[0].link} allowFullScreen></iframe>}
             </div>
             <Link
               className="media-info-images"
