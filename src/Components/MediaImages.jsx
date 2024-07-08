@@ -16,6 +16,7 @@ const MediaImages = () => {
 
   return (
     <div className={classes["img-wrapper"]}>
+      This feature is under development.
         {/* <div className={classes.nav}>
             <div>
                 {
