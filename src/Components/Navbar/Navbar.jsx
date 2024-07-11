@@ -4,7 +4,7 @@ import { PiTelevisionBold } from 'react-icons/pi'
 import { Link, useNavigate } from 'react-router-dom'
 import './NavbarStyles.css'
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../store/slice/userSlice";
+import { login } from "../../store/slice/userSlice";
 import Cookies from "js-cookie";
 const Navbar = () => {
     const navigateTo = useNavigate()

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import backend_ref from "./BackendRef";
+import backend_ref from "../BackendRef";
 import axios from "axios";
-import Spinner from "./Spinner/Spinner";
-import MediaCard from "./MediaCard";
+import Spinner from "../Spinner/Spinner";
+import MediaCard from "../MediaCard/MediaCard";
 import './searchResultsStyles.css'
 
 

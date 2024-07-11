@@ -1,13 +1,13 @@
-import MediaCard from "./MediaCard";
+import MediaCard from "../MediaCard/MediaCard";
 import { useState, useEffect } from "react";
 import "./HomeStyles.css";
 import axios from "axios";
-import Spinner from "./Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { loadData } from "../store/slice/homeData";
-import { addData } from "../store/slice/searchResults";
-import backend_ref from "./BackendRef";
+import { loadData } from "../../store/slice/homeData";
+import { addData } from "../../store/slice/searchResults";
+import backend_ref from "../BackendRef";
 
 const Home = () => {
   let homeData = useSelector((store) => store.home);

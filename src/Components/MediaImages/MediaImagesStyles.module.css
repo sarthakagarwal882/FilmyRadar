@@ -1,0 +1,55 @@
+.wrapper {
+  margin: 2rem 3rem 0;
+}
+.image-grid {
+  display: grid;
+  gap: 10px; /* Adjust the gap as needed */
+  margin: 1rem 0;
+}
+
+.wrapper button {
+  display: block;
+  height: 3rem;
+  background-color: #edbf1b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-weight: 600;
+  font-size:1rem;
+  color:#fff;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+}
+.wrapper hr {
+  border-color: #facf5a;
+}
+.wrapper h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,16 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import LogIn from "./Routes/LoginRoute";
-import Register from "./Routes/RegisterRoute";
-import HomePage from "./Routes/HomePageRoute";
-import MediaInfoRoute from "./Routes/MediaInfoRoute";
-import SearchRoute from "./Routes/SearchRoute";
-import MediaImages from "./Components/MediaImages";
+import LogIn from "./Pages/LoginPage";
+import Register from "./Pages/RegisterPage";
+import HomePage from "./Pages/HomePage";
+import MediaInfoRoute from "./Pages/MediaInfoPage";
+import SearchRoute from "./Pages/SearchPage";
+import MediaImages from "./Components/MediaImages/MediaImages";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LogIn />} />

@@ -8,10 +8,10 @@ import { BsImages } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
 import "./MediaInfoStyles.css";
 import axios from "axios";
-import Spinner from "./Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 import { useDispatch, useSelector } from "react-redux";
-import backend_ref from "./BackendRef";
-import { addData } from "../store/slice/searchResults";
+import backend_ref from "../BackendRef";
+import { addData } from "../../store/slice/searchResults";
 const MediaInfo = (props) => {
   const location=useLocation()
   const dispatch = useDispatch();

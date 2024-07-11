@@ -1,10 +1,10 @@
 import Login from "../Components/authentication/Login"
-import Navbar from '../Components/Navbar'
+import Navbar from '../Components/Navbar/Navbar'
 
 const LogIn=()=>{
     return(
         <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Login/>
         </div>
     )

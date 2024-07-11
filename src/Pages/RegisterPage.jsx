@@ -1,10 +1,10 @@
-import Navbar from "../Components/Navbar"
+import Navbar from "../Components/Navbar/Navbar"
 import SignUp from "../Components/authentication/SignUp"
 
 const Register = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <SignUp />
         </div>
     )

@@ -1,5 +1,5 @@
-import Home from "../Components/Home"
-import Navbar from "../Components/Navbar"
+import Home from "../Components/Home/Home"
+// import Navbar from "../Components/Navbar"
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/slice/userSlice';
@@ -30,7 +30,7 @@ const HomePage = () => {
     return (
         (returnState) ?
             <div >
-                <Navbar />
+                {/* <Navbar /> */}
                 <Home />
             </div>
             :

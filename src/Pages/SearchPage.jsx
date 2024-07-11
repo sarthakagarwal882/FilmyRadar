@@ -1,5 +1,5 @@
-import SearchResults from '../Components/searchResults'
-import Navbar from '../Components/Navbar'
+import SearchResults from '../Components/SearchResults/searchResults'
+import Navbar from '../Components/Navbar/Navbar'
 import { useSearchParams } from "react-router-dom"
 
 const SearchRoute=()=>{
@@ -9,7 +9,7 @@ const SearchRoute=()=>{
 
     return(
         <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <SearchResults query={query}/>
         </div>
     )
